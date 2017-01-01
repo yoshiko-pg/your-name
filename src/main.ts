@@ -1,4 +1,5 @@
 import './polyfills.ts';
+import 'rxjs/add/operator/map';
 
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';

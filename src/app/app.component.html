@@ -6,7 +6,7 @@
   <label>event url:</label>
   <input type="text" name="url" [(ngModel)]="url" placeholder="https://connpass.com/hogehoge">
 
-  <button type="submit">Create</button>
+  <button type="submit" (click)="submit()">Create</button>
 </form>
 
 <app-cards [url]="url"></app-cards>

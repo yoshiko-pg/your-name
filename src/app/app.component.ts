@@ -1,5 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { CardsComponent } from './cards/cards.component'
+import { ParticipationService } from './services/participation.service'
+
 
 @NgModule({
   declarations: [CardsComponent],
@@ -7,8 +9,19 @@ import { CardsComponent } from './cards/cards.component'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [ParticipationService],
 })
 export class AppComponent {
-  url: string;
+  // TMP
+  url: string = 'https://goodpatch.connpass.com/event/33930/participation/';
+
+  constructor(private service: ParticipationService) {
+  }
+
+  submit() {
+    this.service.getMember(this.url).subscribe((data) => {
+      console.log(data);
+    });
+  }
 }
