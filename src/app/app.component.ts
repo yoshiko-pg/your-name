@@ -1,6 +1,6 @@
 import { Component, NgModule } from '@angular/core';
-import { CardsComponent } from './cards/cards.component'
-import { ParticipationService } from './services/participation.service'
+import { CardsComponent } from './cards/cards.component';
+import { ParticipationService } from './services/participation.service';
 
 
 @NgModule({
@@ -21,6 +21,7 @@ export class AppComponent {
 
   submit() {
     this.service.fetch(this.url).subscribe((data) => {
+      // eslint-disable-next-line
       console.log(data);
     });
   }
