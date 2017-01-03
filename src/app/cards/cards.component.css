@@ -1,0 +1,3 @@
+card:nth-child(8n + 1) {
+  page-break-after: always;
+}

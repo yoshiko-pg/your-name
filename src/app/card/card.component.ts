@@ -4,7 +4,7 @@ import { Component, Input, OnInit } from '@angular/core';
   selector: 'app-card',
   template: `
     <img src="{{user.avatar}}" alt="{{user.name}}">
-    <span>{{user.name}}</span>
+    <span class="name">{{user.name}}</span>
   `,
   styleUrls: ['./card.component.css']
 })

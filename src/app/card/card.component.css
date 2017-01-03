@@ -1,0 +1,20 @@
+:host {
+  width: 320px;
+  height: 200px;
+  box-shadow: 0 0 1px rgba(0,0,0,0.5) inset;
+  background: url("/assets/images/background.png") no-repeat left top;
+  background-size: cover;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+img {
+  height: 60px;
+  flex: 0 0 60px;
+  border-radius: 50%;
+  margin-right: 22px;
+}
+.name {
+  font-size: 24px;
+  color: #fff;
+}
