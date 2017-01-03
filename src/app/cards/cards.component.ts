@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-cards',
-  templateUrl: './cards.component.html',
+  template: `<app-card *ngFor="let user of users" [user]="user"></app-card>`,
   styleUrls: ['./cards.component.css']
 })
 export class CardsComponent implements OnInit {
