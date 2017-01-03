@@ -7,7 +7,7 @@ export class ParticipationService {
 
   constructor(private http: Jsonp) { }
 
-  fetch(url: string): Observable<Object> {
+  fetch(url: string): Observable<Object[]> {
     const query = `select * from html where url='${url}'`;
     const fullUrl = `https://query.yahooapis.com/v1/public/yql?callback=JSONP_CALLBACK&q=${encodeURIComponent(query)}`;
 

@@ -6,11 +6,10 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./cards.component.css']
 })
 export class CardsComponent implements OnInit {
-  @Input() url: string;
+  @Input() users: Object[];
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }
