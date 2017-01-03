@@ -20,7 +20,7 @@ export class AppComponent {
   }
 
   submit() {
-    this.service.getMember(this.url).subscribe((data) => {
+    this.service.fetch(this.url).subscribe((data) => {
       console.log(data);
     });
   }
