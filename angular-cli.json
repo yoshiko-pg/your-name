@@ -18,7 +18,8 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
-        "styles.css"
+        "assets/styles/reset.css",
+        "assets/styles/format.css"
       ],
       "scripts": [],
       "environments": {
