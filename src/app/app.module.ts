@@ -10,12 +10,14 @@ import { storeFactory, STORE_TOKEN } from './core/store'
 import { AppComponent } from './app.component';
 import { CardsComponent } from './cards/cards.component';
 import { CardComponent } from './card/card.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardsComponent,
     CardComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,12 @@
+<h1>Connpass Name Card Generator</h1>
+
+<p>ConnpassのイベントURLから印刷用ネームカード一覧を生成できます。</p>
+
+<form>
+  <label>event url:</label>
+  <input type="text" name="url" [(ngModel)]="url" placeholder="https://connpass.com/hogehoge">
+
+  <button type="submit" (click)="submit()">Create</button>
+</form>
+
+
