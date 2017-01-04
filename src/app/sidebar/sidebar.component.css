@@ -27,3 +27,26 @@ h1 {
 form {
   padding: 25px;
 }
+
+[name="url"] {
+  display: block;
+}
+
+.select-member {
+  text-align: left;
+  list-style-type: none;
+  margin: 30px 0;
+  font-size: 14px;
+}
+.select-member li {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  margin: 14px 0;
+}
+
+[name="reserve-count"] {
+  width: 76px;
+  white-space: nowrap;
+  margin-left: 16px;
+}

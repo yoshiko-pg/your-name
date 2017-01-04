@@ -7,9 +7,21 @@
 <form>
   <md-input placeholder="Connpass Event URL" [(ngModel)]="url" name="url" type="text"></md-input>
 
-  <md-checkbox>Check me!</md-checkbox>
-  <md-checkbox>Check me!</md-checkbox>
-  <md-checkbox>Check me!</md-checkbox>
+  <ul class="select-member">
+    <li>
+      <md-checkbox>管理者</md-checkbox>
+    </li>
+    <li>
+      <md-checkbox [checked]="true">参加者</md-checkbox>
+    </li>
+    <li>
+      <md-checkbox>補欠者</md-checkbox>
+      <md-input name="reserve-count" type="number" align="end" value="10" min="1" max="999" [disabled]="true">
+        <span md-prefix>上位</span>
+        <span md-suffix>名</span>
+      </md-input>
+    </li>
+  </ul>
 
   <button md-raised-button color="primary" type="submit" (click)="submit()">Create</button>
 </form>
