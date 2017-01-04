@@ -18,6 +18,9 @@ export class SidebarComponent implements OnInit {
   }
 
   submit() {
+    if (!this.url) {
+      return;
+    }
     this.service.fetch(this.url).subscribe((users) => this.actions.updateUsers(users));
   }
 
