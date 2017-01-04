@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+  background-color: #f2f2f2;
+  width: 100%;
+  height: 100vh;
+}
+
+app-sidebar {
+  flex: 0 0 330px;
+}
+
+app-preview {
+  flex: 1 1 auto;
+}

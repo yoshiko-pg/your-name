@@ -1,0 +1,11 @@
+body{
+  color: #333;
+  font-size: 12px;
+  font-family: 'Maven Pro', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
