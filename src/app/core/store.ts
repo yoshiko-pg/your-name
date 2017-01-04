@@ -1,8 +1,13 @@
 import { OpaqueToken } from '@angular/core/src/di/opaque_token';
 import { EventEmitter } from './event-emitter';
+import { User } from './interfaces';
+
+interface State {
+  users: User[];
+}
 
 export class Store extends EventEmitter {
-  private state = {
+  private state: State = {
     users: [],
   };
 
@@ -11,12 +16,12 @@ export class Store extends EventEmitter {
     this.dispatcher.on('updateUsers', this.updateUsers.bind(this));
   }
 
-  updateUsers(users) {
+  updateUsers(users: User[]): void {
     this.state.users = users;
     this.emit('updateUsers', this.users);
   }
 
-  get users() {
+  get users(): User[] {
     return this.state.users;
   }
 }

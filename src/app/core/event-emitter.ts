@@ -1,12 +1,12 @@
 export class EventEmitter {
   private handlers = {};
 
-  on(type: string, callback) {
+  on(type: string, callback): void {
     this.handlers[type] = this.handlers[type] || [];
     this.handlers[type].push(callback);
   }
 
-  off(type: string, callback) {
+  off(type: string, callback): void {
     if ((this.handlers[type] || []).includes(callback)) {
       const index = this.handlers[type].indexOf(callback);
 
@@ -14,7 +14,7 @@ export class EventEmitter {
     }
   }
 
-  emit(type: string, data: any) {
+  emit(type: string, data: any): void {
     (this.handlers[type] || []).forEach((callback) => {
       callback(data);
     });

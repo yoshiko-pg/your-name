@@ -17,11 +17,11 @@ export class SidebarComponent implements OnInit {
   ) {
   }
 
-  submit() {
+  submit(): void {
     if (!this.url) {
       return;
     }
-    this.service.fetch(this.url).subscribe((users) => this.actions.updateUsers(users));
+    this.service.fetch(this.url).subscribe(this.actions.updateUsers.bind(this.actions));
   }
 
   ngOnInit() {

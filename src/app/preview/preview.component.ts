@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Store, STORE_TOKEN } from '../core/store';
+import { User } from '../core/interfaces';
 
 @Component({
   selector: 'app-preview',
@@ -7,7 +8,7 @@ import { Store, STORE_TOKEN } from '../core/store';
   styleUrls: ['./preview.component.css'],
 })
 export class PreviewComponent implements OnInit {
-  users: Object[];
+  users: User[];
 
   constructor(
     @Inject(STORE_TOKEN) private store: Store,
