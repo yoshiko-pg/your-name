@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { CardsComponent } from './cards/cards.component';
 import { CardComponent } from './card/card.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { PreviewComponent } from './preview/preview.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     CardsComponent,
     CardComponent,
     SidebarComponent,
+    PreviewComponent,
   ],
   imports: [
     BrowserModule,
