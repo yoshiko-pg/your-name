@@ -5,10 +5,13 @@
 <p>ConnpassのURLからネームカードを生成できます。</p>
 
 <form>
-  <label>event url:</label>
-  <input type="text" name="url" [(ngModel)]="url" placeholder="https://connpass.com/hogehoge">
+  <md-input placeholder="Connpass Event URL" [(ngModel)]="url" name="url" type="text"></md-input>
 
-  <button type="submit" (click)="submit()">Create</button>
+  <md-checkbox>Check me!</md-checkbox>
+  <md-checkbox>Check me!</md-checkbox>
+  <md-checkbox>Check me!</md-checkbox>
+
+  <button md-raised-button color="primary" type="submit" (click)="submit()">Create</button>
 </form>
 
 

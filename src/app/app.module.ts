@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { JsonpModule } from '@angular/http';
+import { MaterialModule } from '@angular/material';
 
 import { EventEmitter } from './core/event-emitter';
 import { actionCreatorFactory, ACTION_CREATOR_TOKEN } from './core/action-creator';
@@ -24,7 +25,8 @@ import { PreviewComponent } from './preview/preview.component';
   imports: [
     BrowserModule,
     FormsModule,
-    JsonpModule
+    JsonpModule,
+    MaterialModule.forRoot(),
   ],
   providers: [EventEmitter, {
     provide: ACTION_CREATOR_TOKEN,
