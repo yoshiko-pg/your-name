@@ -8,8 +8,7 @@ import { ParticipationService } from './services/participation.service';
   providers: [ParticipationService],
 })
 export class AppComponent {
-  // TMP
-  url: string = 'https://goodpatch.connpass.com/event/33930/participation/';
+  url: string;
   users: Object[];
 
   constructor(private service: ParticipationService) {
