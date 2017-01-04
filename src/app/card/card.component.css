@@ -1,6 +1,5 @@
 :host {
-  width: 320px;
-  height: 200px;
+  overflow: hidden;
   box-shadow: 0 0 1px rgba(0,0,0,0.5) inset;
   background: url("./assets/images/background.png") no-repeat left top;
   background-size: cover;
@@ -9,12 +8,11 @@
   justify-content: center;
 }
 img {
-  height: 60px;
-  flex: 0 0 60px;
+  height: 40%;
   border-radius: 50%;
-  margin-right: 22px;
+  margin-right: 10%;
 }
 .name {
-  font-size: 24px;
+  font-size: 24%;
   color: #fff;
 }

@@ -1,3 +1,25 @@
-card:nth-child(8n + 1) {
+:host {
+  background-color: #fff;
+  position: relative;
+}
+
+.inner {
+  position: absolute;
+  top: 3.7%;
+  left: 7.1%;
+  width: 85.7%;
+  height: 92.6%;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+
+app-card {
+  flex: 0 0 50%;
+  height: 20%;
+}
+
+app-card:nth-child(8n + 1) {
   page-break-after: always;
 }
