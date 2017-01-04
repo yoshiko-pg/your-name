@@ -124,7 +124,7 @@ module.exports = {
     "consistent-this": ["error", "self"],
     "eol-last": "error",
     "func-names": 0,
-    "func-style": ["error", "expression", { "allowArrowFunctions": true }],
+    "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
     "id-blacklist": 0,
     "id-length": ["error", { "min": 0, "max": 34 }],
     "id-match": 0,

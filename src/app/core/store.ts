@@ -1,9 +1,9 @@
 import { OpaqueToken } from '@angular/core/src/di/opaque_token';
-import { EventEmitter } from './event-emitter'
+import { EventEmitter } from './event-emitter';
 
 export class Store extends EventEmitter {
   private state = {
-    users: []
+    users: [],
   };
 
   constructor(private dispatcher: EventEmitter) {

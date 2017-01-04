@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { ActionCreator, ACTION_CREATOR_TOKEN } from '../core/action-creator'
+import { ActionCreator, ACTION_CREATOR_TOKEN } from '../core/action-creator';
 import { ParticipationService } from '../services/participation.service';
 
 @Component({
