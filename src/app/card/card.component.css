@@ -2,7 +2,7 @@
   width: 320px;
   height: 200px;
   box-shadow: 0 0 1px rgba(0,0,0,0.5) inset;
-  background: url("/assets/images/background.png") no-repeat left top;
+  background: url("./assets/images/background.png") no-repeat left top;
   background-size: cover;
   display: inline-flex;
   align-items: center;
