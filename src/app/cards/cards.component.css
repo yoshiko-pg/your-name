@@ -3,6 +3,12 @@
   position: relative;
 }
 
+:host::before {
+  content: '';
+  display: block;
+  padding-top: 141.4%; /* A4 ratio */
+}
+
 .inner {
   position: absolute;
   top: 3.7%;
@@ -18,8 +24,4 @@
 app-card {
   flex: 0 0 50%;
   height: 20%;
-}
-
-app-card:nth-child(8n + 1) {
-  page-break-after: always;
 }

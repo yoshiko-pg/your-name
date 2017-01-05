@@ -8,12 +8,21 @@ import { User } from '../core/interfaces';
   styleUrls: ['./preview.component.css'],
 })
 export class PreviewComponent implements OnInit {
-  users: User[];
+  userContainer: User[][];
 
   constructor(
     @Inject(STORE_TOKEN) private store: Store,
   ) {
-    store.on('updateUsers', (users) => this.users = users);
+    store.on('updateUsers', this.sliceUsers.bind(this));
+  }
+
+  sliceUsers(originalUsers) {
+    this.userContainer = [];
+    const users = [].concat(originalUsers);
+
+    while(users.length) {
+      this.userContainer.push(users.splice(0, 10));
+    }
   }
 
   ngOnInit() {

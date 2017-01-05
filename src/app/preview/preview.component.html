@@ -1,10 +1,2 @@
-<app-cards [users]="users"></app-cards>
-<nav>
-  <div class="paging-ui">
-    <button md-mini-fab><md-icon>keyboard_arrow_left</md-icon></button>
-    <button md-mini-fab><md-icon>keyboard_arrow_right</md-icon></button>
-  </div>
-  <div class="print-ui">
-    <button md-fab color="primary"><md-icon>print</md-icon></button>
-  </div>
-</nav>
+<app-cards *ngFor="let users of userContainer" [users]="users"></app-cards>
+<button class="print-button" md-fab color="primary"><md-icon>print</md-icon></button>
