@@ -25,3 +25,18 @@ app-card {
   flex: 0 0 50%;
   height: 20%;
 }
+
+@media print {
+  :host {
+    page-break-after: always;
+  }
+  :host::before {
+    content: none;
+  }
+  .inner {
+    position: static;
+    width: 182mm;
+    height: 275mm;
+    margin: 11mm 15mm;
+  }
+}

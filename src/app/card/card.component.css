@@ -13,6 +13,12 @@ img {
   margin-right: 10%;
 }
 .name {
-  font-size: 24%;
+  font-size: 14px;
   color: #fff;
+}
+
+@media print {
+  .name {
+    font-size: 6.5mm;
+  }
 }

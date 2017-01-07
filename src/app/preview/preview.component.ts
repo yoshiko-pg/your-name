@@ -16,6 +16,10 @@ export class PreviewComponent implements OnInit {
     store.on('updateUsers', this.sliceUsers.bind(this));
   }
 
+  print() {
+    window.print();
+  }
+
   sliceUsers(originalUsers) {
     this.userContainer = [];
     const users = [].concat(originalUsers);

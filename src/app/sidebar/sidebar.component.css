@@ -50,3 +50,9 @@ form {
   white-space: nowrap;
   margin-left: 16px;
 }
+
+@media print {
+  :host {
+    display: none;
+  }
+}

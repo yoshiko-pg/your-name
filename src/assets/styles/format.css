@@ -2,11 +2,20 @@ body{
   color: #333;
   font-size: 12px;
   font-family: 'Maven Pro', sans-serif;
-  overflow: hidden;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+@media print {
+  body {
+    width: 210mm;
+  }
 }

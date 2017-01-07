@@ -14,3 +14,14 @@ app-cards {
   right: 25px;
   bottom: 25px;
 }
+
+@media print {
+  .print-button {
+    display: none;
+  }
+  :host app-cards {
+    width: auto;
+    max-width: none;
+    margin: 0;
+  }
+}
