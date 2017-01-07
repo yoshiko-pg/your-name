@@ -13,6 +13,7 @@ import { CardsComponent } from './cards/cards.component';
 import { CardComponent } from './card/card.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { PreviewComponent } from './preview/preview.component';
+import { PrintedDialogComponent } from './printed-dialog/printed-dialog.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,10 @@ import { PreviewComponent } from './preview/preview.component';
     CardComponent,
     SidebarComponent,
     PreviewComponent,
+    PrintedDialogComponent,
+  ],
+  entryComponents: [
+    PrintedDialogComponent,
   ],
   imports: [
     BrowserModule,
