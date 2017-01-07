@@ -2,6 +2,7 @@ body{
   color: #333;
   font-size: 12px;
   font-family: 'Maven Pro', sans-serif;
+  counter-reset: page-number;
 }
 
 *,

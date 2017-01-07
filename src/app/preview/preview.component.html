@@ -1,2 +1,2 @@
-<app-cards *ngFor="let users of userContainer" [users]="users"></app-cards>
+<app-cards *ngFor="let users of userContainer" [users]="users" [pageSum]="userContainer.length"></app-cards>
 <button class="print-button" md-fab color="primary" (click)="print()"><md-icon>print</md-icon></button>

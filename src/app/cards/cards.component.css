@@ -17,13 +17,33 @@
   height: 92.6%;
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid rgba(0,0,0,0.2);
-  overflow: hidden;
 }
 
 app-card {
   flex: 0 0 50%;
   height: 20%;
+}
+
+footer {
+  position: absolute;
+  left: 7.1%;
+  bottom: 0;
+  width: 85.7%;
+  height: 3.7%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 10px;
+  color: #888;
+}
+
+.page-number::before {
+  counter-increment: page-number;
+  content: counter(page-number);
+}
+
+.generated-by {
+  display: none;
 }
 
 @media print {
@@ -37,6 +57,16 @@ app-card {
     position: static;
     width: 182mm;
     height: 275mm;
-    margin: 11mm 15mm;
+    margin: 11mm 15mm 0;
+  }
+  footer {
+    justify-content: space-between;
+    position: static;
+    width: 182mm;
+    height: 11mm;
+    margin: 0 15mm;
+  }
+  .generated-by {
+    display: block;
   }
 }

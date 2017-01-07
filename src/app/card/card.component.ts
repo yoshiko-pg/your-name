@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { User } from '../core/interfaces';
 
 @Component({
   selector: 'app-card',
@@ -9,11 +10,10 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-  @Input() user;
+  @Input() user: User;
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }
