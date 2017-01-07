@@ -8,7 +8,7 @@ import { User } from '../core/interfaces';
   styleUrls: ['./preview.component.css'],
 })
 export class PreviewComponent implements OnInit {
-  userContainer: User[][];
+  userContainer: User[][] = [];
 
   constructor(
     @Inject(STORE_TOKEN) private store: Store,
