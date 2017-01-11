@@ -14,7 +14,7 @@ export class EventEmitter {
     }
   }
 
-  emit(type: string, data: any): void {
+  emit(type: string, data?: any): void {
     (this.handlers[type] || []).forEach((callback) => {
       callback(data);
     });

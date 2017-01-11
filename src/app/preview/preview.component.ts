@@ -11,12 +11,14 @@ import { PrintedDialogComponent } from '../printed-dialog/printed-dialog.compone
 })
 export class PreviewComponent implements OnInit {
   userContainer: User[][] = [];
+  loading: boolean = false;
 
   constructor(
     @Inject(STORE_TOKEN) private store: Store,
     private dialog: MdDialog,
   ) {
-    store.on('updateUsers', this.sliceUsers.bind(this));
+    store.on('change', this.sliceUsers.bind(this));
+    store.on('change', () => this.loading = this.store.fetching);
   }
 
   print(): void {
@@ -24,9 +26,9 @@ export class PreviewComponent implements OnInit {
     this.dialog.open(PrintedDialogComponent);
   }
 
-  sliceUsers(originalUsers: User[]): void {
+  sliceUsers(): void {
     this.userContainer = [];
-    const users = [].concat(originalUsers);
+    const users = [].concat(this.store.users);
 
     while (users.length) {
       this.userContainer.push(users.splice(0, 10));
