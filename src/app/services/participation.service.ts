@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Jsonp, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import { User } from '../core/interfaces';
+import { USER_KINDS } from '../core/constants';
 
 @Injectable()
 export class ParticipationService {
@@ -19,15 +20,25 @@ export class ParticipationService {
     const parser = new DOMParser();
     const htmlString = res.json().results[0];
     const doc = parser.parseFromString(htmlString, 'text/html');
-    const images = doc.querySelectorAll('.participation_table_area .image_link img');
-    const users = Array.from(images).map((image: HTMLImageElement, index: number): User => {
-      return {
-        avatar: image.src,
-        name: image.alt,
-        index,
-      };
-    });
 
-    return users;
+    return Object.values(USER_KINDS)
+      .map((USER_KIND) => {
+        const images = doc.querySelectorAll(`${USER_KIND.CONTAINER_SELECTOR} .image_link img`);
+        return Array.from(images);
+      })
+      .reduce((sum, current) => {
+        return sum.concat(current);
+      }, [])
+      .map((image: HTMLImageElement, index: number): User => {
+        return {
+          avatar: image.src,
+          name: image.alt,
+          index,
+        };
+      })
+      .filter((item, index, self) => {
+        return self.map((i) => i.avatar).indexOf(item.avatar) === index;
+      })
+      ;
   }
 }
