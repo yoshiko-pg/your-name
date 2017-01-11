@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MdDialog } from '@angular/material';
-import { Store, STORE_TOKEN } from '../core/store';
-import { User } from '../core/interfaces';
+import { Store, STORE_TOKEN } from '../../core/store';
+import { User } from '../../core/interfaces';
 import { PrintedDialogComponent } from '../printed-dialog/printed-dialog.component';
 
 @Component({

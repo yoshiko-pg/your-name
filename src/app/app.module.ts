@@ -12,12 +12,12 @@ import { storeFactory, STORE_TOKEN } from './core/store';
 import { ParticipationService } from './services/participation.service';
 
 import { AppComponent } from './app.component';
-import { CardsComponent } from './cards/cards.component';
-import { CardComponent } from './card/card.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { PreviewComponent } from './preview/preview.component';
-import { PrintedDialogComponent } from './printed-dialog/printed-dialog.component';
-import { ShareButtonsComponent } from './share-buttons/share-buttons.component';
+import { CardsComponent } from './components/cards/cards.component';
+import { CardComponent } from './components/card/card.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { PreviewComponent } from './components/preview/preview.component';
+import { PrintedDialogComponent } from './components/printed-dialog/printed-dialog.component';
+import { ShareButtonsComponent } from './components/share-buttons/share-buttons.component';
 
 @NgModule({
   declarations: [
