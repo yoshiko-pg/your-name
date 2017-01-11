@@ -9,6 +9,8 @@ import { EventEmitter } from './core/event-emitter';
 import { actionCreatorFactory, ACTION_CREATOR_TOKEN } from './core/action-creator';
 import { storeFactory, STORE_TOKEN } from './core/store';
 
+import { ParticipationService } from './services/participation.service';
+
 import { AppComponent } from './app.component';
 import { CardsComponent } from './cards/cards.component';
 import { CardComponent } from './card/card.component';
@@ -37,15 +39,20 @@ import { ShareButtonsComponent } from './share-buttons/share-buttons.component';
     MaterialModule.forRoot(),
     ShareButtonsModule,
   ],
-  providers: [EventEmitter, {
-    provide: ACTION_CREATOR_TOKEN,
-    useFactory: actionCreatorFactory,
-    deps: [EventEmitter],
-  }, {
-    provide: STORE_TOKEN,
-    useFactory: storeFactory,
-    deps: [EventEmitter],
-  }],
+  providers: [
+    EventEmitter,
+    ParticipationService,
+    {
+      provide: ACTION_CREATOR_TOKEN,
+      useFactory: actionCreatorFactory,
+      deps: [EventEmitter, ParticipationService],
+    },
+    {
+      provide: STORE_TOKEN,
+      useFactory: storeFactory,
+      deps: [EventEmitter],
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
