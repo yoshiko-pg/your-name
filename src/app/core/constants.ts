@@ -1,7 +1,15 @@
+import { User } from "./interfaces";
+
 export interface UserKind {
   KEY: string;
   LABEL: string;
   CONTAINER_SELECTORS: string[];
+}
+
+export interface Users {
+  admin?: User[];
+  participant?: User[];
+  waiting?: User[];
 }
 
 export const USER_KINDS: UserKind[] = [

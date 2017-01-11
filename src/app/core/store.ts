@@ -1,11 +1,11 @@
 import { OpaqueToken } from '@angular/core/src/di/opaque_token';
 
 import { EventEmitter } from './event-emitter';
-import { User } from './interfaces';
+import { Users } from './constants';
 import { USER_KINDS, UserKind } from './constants';
 
 interface State {
-  users: User[];
+  users: Users;
   includeUserKinds: UserKind[];
   waitingNumber: number;
   fetching: boolean;
@@ -48,7 +48,7 @@ export class Store extends EventEmitter {
     this.emit('change');
   }
 
-  updateUsers(users: User[]): void {
+  updateUsers(users: Users): void {
     this.state.users = users;
     this.emit('change');
   }
@@ -58,7 +58,7 @@ export class Store extends EventEmitter {
     this.emit('change');
   }
 
-  get users(): User[] {
+  get users(): Users {
     return this.state.users;
   }
 

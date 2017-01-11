@@ -34,7 +34,7 @@ export class SidebarComponent implements OnInit {
       return;
     }
 
-    this.actions.updateUsers(this.url, this.selected);
+    this.actions.updateUsers(this.url);
   }
 
   ngOnInit() {

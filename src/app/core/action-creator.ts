@@ -2,8 +2,7 @@ import { Observable } from "rxjs";
 import { OpaqueToken } from '@angular/core/src/di/opaque_token';
 
 import { EventEmitter } from './event-emitter';
-import { User } from './interfaces';
-import { UserKind } from './constants';
+import { UserKind, Users } from './constants';
 import { ParticipationService } from '../services/participation.service';
 
 export class ActionCreator {
@@ -18,16 +17,16 @@ export class ActionCreator {
     this.dispatcher.emit('changeWaitingNumber', num);
   }
 
-  updateUsers(url: string, userKinds: UserKind[]): void {
-    this.fetchUsers(url, userKinds).subscribe((users: User[]) => {
+  updateUsers(url: string): void {
+    this.fetchUsers(url).subscribe((users: Users) => {
         this.dispatcher.emit('updateUsers', users);
         this.dispatcher.emit('fetchingUsers', false);
     });
   }
 
-  fetchUsers(url: string, userKinds: UserKind[]): Observable<User[]> {
+  fetchUsers(url: string): Observable<Users> {
     this.dispatcher.emit('fetchingUsers', true);
-    return this.service.fetch(url, userKinds);
+    return this.service.fetch(url);
   }
 }
 
