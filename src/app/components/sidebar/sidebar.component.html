@@ -8,15 +8,19 @@
   <md-input placeholder="Connpass Event URL" [(ngModel)]="url" name="url" type="text"></md-input>
 
   <ul class="select-member">
-    <li>
-      <md-checkbox>管理者</md-checkbox>
-    </li>
-    <li>
-      <md-checkbox [checked]="true">参加者</md-checkbox>
-    </li>
-    <li>
-      <md-checkbox>補欠者</md-checkbox>
-      <md-input name="reserve-count" type="number" align="end" value="10" min="1" max="999" [disabled]="true">
+    <li *ngFor="let userKind of userKinds">
+      <md-checkbox [name]="userKind.KEY">{{userKind.LABEL}}</md-checkbox>
+      <md-input
+        *ngIf="userKind.KEY === 'waiting'"
+        class="waiting-number"
+        name="waiting"
+        type="number"
+        align="end"
+        value="10"
+        min="1"
+        max="999"
+        [disabled]="true"
+      >
         <span md-prefix>上位</span>
         <span md-suffix>名</span>
       </md-input>

@@ -1,29 +1,23 @@
-interface UserKind {
+export interface UserKind {
+  KEY: string;
   LABEL: string;
-  CONTAINER_SELECTOR: string;
-}
-interface UserKinds {
-  admin: UserKind;
-  participant: UserKind;
-  waiting: UserKind;
-  lottery: UserKind;
+  CONTAINER_SELECTORS: string[];
 }
 
-export const USER_KINDS: UserKinds = {
-  admin: {
+export const USER_KINDS: UserKind[] = [
+  {
+    KEY: 'admin',
     LABEL: '管理者・発表者',
-    CONTAINER_SELECTOR: '.concerned_area',
+    CONTAINER_SELECTORS: ['.concerned_area'],
   },
-  participant: {
+  {
+    KEY: 'participant',
     LABEL: '参加者（抽選待ち含む）',
-    CONTAINER_SELECTOR: '.participation_table_area',
+    CONTAINER_SELECTORS: ['.participation_table_area', '.lottery_table_area'],
   },
-  waiting: {
+  {
+    KEY: 'waiting',
     LABEL: '補欠者',
-    CONTAINER_SELECTOR: '.waitlist_table_area',
+    CONTAINER_SELECTORS: ['.waitlist_table_area'],
   },
-  lottery: {
-    LABEL: '抽選待ち',
-    CONTAINER_SELECTOR: '.lottery_table_area',
-  },
-};
+];

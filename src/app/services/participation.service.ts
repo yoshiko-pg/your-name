@@ -23,8 +23,11 @@ export class ParticipationService {
 
     return Object.values(USER_KINDS)
       .map((USER_KIND) => {
-        const images = doc.querySelectorAll(`${USER_KIND.CONTAINER_SELECTOR} .image_link img`);
-        return Array.from(images);
+        return USER_KIND.CONTAINER_SELECTORS.map((SELECTOR) => {
+          return Array.from(doc.querySelectorAll(`${SELECTOR} .image_link img`));
+        }).reduce((sum, current) => {
+          return sum.concat(current);
+        }, []);
       })
       .reduce((sum, current) => {
         return sum.concat(current);

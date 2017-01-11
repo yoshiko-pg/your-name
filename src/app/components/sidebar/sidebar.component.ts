@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { ActionCreator, ACTION_CREATOR_TOKEN } from '../../core/action-creator';
+import { USER_KINDS, UserKind } from '../../core/constants';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,6 +9,7 @@ import { ActionCreator, ACTION_CREATOR_TOKEN } from '../../core/action-creator';
 })
 export class SidebarComponent implements OnInit {
   url: string;
+  userKinds: UserKind[] = USER_KINDS;
 
   constructor(@Inject(ACTION_CREATOR_TOKEN) private actions: ActionCreator) {
   }

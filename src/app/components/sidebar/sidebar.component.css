@@ -53,7 +53,7 @@ h1 {
   margin: 14px 0;
 }
 
-[name="reserve-count"] {
+.waiting-number {
   width: 76px;
   white-space: nowrap;
   margin-left: 16px;
