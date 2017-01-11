@@ -19,6 +19,7 @@
       "mobile": false,
       "styles": [
         "assets/styles/reset.css",
+        "assets/styles/loading.css",
         "assets/styles/format.css",
         "assets/styles/material-theme.scss"
       ],
