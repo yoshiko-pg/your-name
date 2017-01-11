@@ -1,22 +1,43 @@
 import { OpaqueToken } from '@angular/core/src/di/opaque_token';
+
 import { EventEmitter } from './event-emitter';
 import { User } from './interfaces';
+import { USER_KINDS, UserKind } from './constants';
 
 interface State {
   users: User[];
+  includeUserKinds: UserKind[];
   fetching: boolean;
 }
 
 export class Store extends EventEmitter {
   private state: State = {
     users: [],
+    includeUserKinds: USER_KINDS.filter((k) => k.KEY === 'participant'),
     fetching: false,
   };
 
   constructor(private dispatcher: EventEmitter) {
     super();
+    this.dispatcher.on('includeUserKind', this.includeUserKind.bind(this));
+    this.dispatcher.on('excludeUserKind', this.excludeUserKind.bind(this));
     this.dispatcher.on('updateUsers', this.updateUsers.bind(this));
     this.dispatcher.on('fetchingUsers', this.fetchingUsers.bind(this));
+  }
+
+  includeUserKind(userKind: UserKind): void {
+    if (!this.state.includeUserKinds.includes(userKind)) {
+      this.state.includeUserKinds.push(userKind);
+      this.emit('change');
+    }
+  }
+
+  excludeUserKind(userKind: UserKind): void {
+    if (this.state.includeUserKinds.includes(userKind)) {
+      const index = this.state.includeUserKinds.indexOf(userKind);
+      this.state.includeUserKinds.splice(index, 1);
+      this.emit('change');
+    }
   }
 
   updateUsers(users: User[]): void {
@@ -31,6 +52,10 @@ export class Store extends EventEmitter {
 
   get users(): User[] {
     return this.state.users;
+  }
+
+  get includeUserKinds(): UserKind[] {
+    return this.state.includeUserKinds;
   }
 
   get fetching(): boolean {

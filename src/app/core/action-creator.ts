@@ -1,11 +1,17 @@
+import { Observable } from "rxjs";
 import { OpaqueToken } from '@angular/core/src/di/opaque_token';
+
 import { EventEmitter } from './event-emitter';
 import { User } from './interfaces';
+import { UserKind } from './constants';
 import { ParticipationService } from '../services/participation.service';
-import {Observable} from "rxjs";
 
 export class ActionCreator {
   constructor(private dispatcher: EventEmitter, private service: ParticipationService) {
+  }
+
+  checkUserKind(userKind: UserKind, checked: boolean): void {
+    this.dispatcher.emit(checked ? 'includeUserKind' : 'excludeUserKind', userKind);
   }
 
   updateUsers(url: string): void {

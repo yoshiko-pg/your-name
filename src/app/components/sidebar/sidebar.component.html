@@ -9,7 +9,13 @@
 
   <ul class="select-member">
     <li *ngFor="let userKind of userKinds">
-      <md-checkbox [name]="userKind.KEY">{{userKind.LABEL}}</md-checkbox>
+      <md-checkbox
+        name="user-kind"
+        (change)="checkUserKind(userKind, $event)"
+        [checked]="selected.includes(userKind)"
+      >
+        {{userKind.LABEL}}
+      </md-checkbox>
       <md-input
         *ngIf="userKind.KEY === 'waiting'"
         class="waiting-number"
