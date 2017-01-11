@@ -2,26 +2,26 @@ import { Injectable } from '@angular/core';
 import { Jsonp, Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import { User } from '../core/interfaces';
-import { USER_KINDS } from '../core/constants';
+import { USER_KINDS, UserKind } from '../core/constants';
 
 @Injectable()
 export class ParticipationService {
 
   constructor(private http: Jsonp) { }
 
-  fetch(url: string): Observable<User[]> {
+  fetch(url: string, userKinds: UserKind[]): Observable<User[]> {
     const query = `select * from html where url='${url.replace(/\/$/, '')}/participation/'`;
     const fullUrl = `https://query.yahooapis.com/v1/public/yql?callback=JSONP_CALLBACK&q=${encodeURIComponent(query)}`;
 
-    return this.http.get(fullUrl).map(this.extractUsers);
+    return this.http.get(fullUrl).map((res: Response) => this.extractUsers(res, userKinds));
   }
 
-  extractUsers(res: Response): User[] {
+  extractUsers(res: Response, userKinds: UserKind[]): User[] {
     const parser = new DOMParser();
     const htmlString = res.json().results[0];
     const doc = parser.parseFromString(htmlString, 'text/html');
 
-    return Object.values(USER_KINDS)
+    return userKinds
       .map((USER_KIND) => {
         return USER_KIND.CONTAINER_SELECTORS.map((SELECTOR) => {
           return Array.from(doc.querySelectorAll(`${SELECTOR} .image_link img`));

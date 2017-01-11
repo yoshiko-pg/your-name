@@ -14,16 +14,16 @@ export class ActionCreator {
     this.dispatcher.emit(checked ? 'includeUserKind' : 'excludeUserKind', userKind);
   }
 
-  updateUsers(url: string): void {
-    this.fetchUsers(url).subscribe((users: User[]) => {
+  updateUsers(url: string, userKinds: UserKind[]): void {
+    this.fetchUsers(url, userKinds).subscribe((users: User[]) => {
         this.dispatcher.emit('updateUsers', users);
         this.dispatcher.emit('fetchingUsers', false);
     });
   }
 
-  fetchUsers(url: string): Observable<User[]> {
+  fetchUsers(url: string, userKinds: UserKind[]): Observable<User[]> {
     this.dispatcher.emit('fetchingUsers', true);
-    return this.service.fetch(url);
+    return this.service.fetch(url, userKinds);
   }
 }
 
