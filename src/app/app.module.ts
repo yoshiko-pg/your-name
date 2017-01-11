@@ -15,6 +15,7 @@ import { CardComponent } from './card/card.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { PreviewComponent } from './preview/preview.component';
 import { PrintedDialogComponent } from './printed-dialog/printed-dialog.component';
+import { ShareButtonsComponent } from './share-buttons/share-buttons.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { PrintedDialogComponent } from './printed-dialog/printed-dialog.componen
     SidebarComponent,
     PreviewComponent,
     PrintedDialogComponent,
+    ShareButtonsComponent,
   ],
   entryComponents: [
     PrintedDialogComponent,
