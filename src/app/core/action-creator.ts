@@ -14,6 +14,10 @@ export class ActionCreator {
     this.dispatcher.emit(checked ? 'includeUserKind' : 'excludeUserKind', userKind);
   }
 
+  changeWaitingNumber(num: number): void {
+    this.dispatcher.emit('changeWaitingNumber', num);
+  }
+
   updateUsers(url: string, userKinds: UserKind[]): void {
     this.fetchUsers(url, userKinds).subscribe((users: User[]) => {
         this.dispatcher.emit('updateUsers', users);

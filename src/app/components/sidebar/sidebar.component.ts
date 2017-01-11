@@ -12,6 +12,7 @@ export class SidebarComponent implements OnInit {
   url: string;
   userKinds: UserKind[] = USER_KINDS;
   selected: UserKind[] = this.store.includeUserKinds;
+  waitingNumber: number = this.store.waitingNumber;
 
   constructor(
     @Inject(ACTION_CREATOR_TOKEN) private actions: ActionCreator,
@@ -22,6 +23,10 @@ export class SidebarComponent implements OnInit {
 
   checkUserKind(userKind: UserKind, {checked}) {
     this.actions.checkUserKind(userKind, checked);
+  }
+
+  changeWaitingNumber(num) {
+    this.actions.changeWaitingNumber(num);
   }
 
   submit(): void {

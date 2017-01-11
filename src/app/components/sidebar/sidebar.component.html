@@ -22,10 +22,11 @@
         name="waiting"
         type="number"
         align="end"
-        value="10"
         min="1"
         max="999"
-        [disabled]="true"
+        [(ngModel)]="waitingNumber"
+        (change)="changeWaitingNumber(waitingNumber)"
+        [disabled]="!selected.includes(userKind)"
       >
         <span md-prefix>上位</span>
         <span md-suffix>名</span>

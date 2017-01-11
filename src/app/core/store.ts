@@ -7,6 +7,7 @@ import { USER_KINDS, UserKind } from './constants';
 interface State {
   users: User[];
   includeUserKinds: UserKind[];
+  waitingNumber: number;
   fetching: boolean;
 }
 
@@ -14,6 +15,7 @@ export class Store extends EventEmitter {
   private state: State = {
     users: [],
     includeUserKinds: USER_KINDS.filter((k) => k.KEY === 'participant'),
+    waitingNumber: 10,
     fetching: false,
   };
 
@@ -21,6 +23,7 @@ export class Store extends EventEmitter {
     super();
     this.dispatcher.on('includeUserKind', this.includeUserKind.bind(this));
     this.dispatcher.on('excludeUserKind', this.excludeUserKind.bind(this));
+    this.dispatcher.on('changeWaitingNumber', this.changeWaitingNumber.bind(this));
     this.dispatcher.on('updateUsers', this.updateUsers.bind(this));
     this.dispatcher.on('fetchingUsers', this.fetchingUsers.bind(this));
   }
@@ -40,6 +43,11 @@ export class Store extends EventEmitter {
     }
   }
 
+  changeWaitingNumber(num: number): void {
+    this.state.waitingNumber = num;
+    this.emit('change');
+  }
+
   updateUsers(users: User[]): void {
     this.state.users = users;
     this.emit('change');
@@ -56,6 +64,10 @@ export class Store extends EventEmitter {
 
   get includeUserKinds(): UserKind[] {
     return this.state.includeUserKinds;
+  }
+
+  get waitingNumber(): number {
+    return this.state.waitingNumber;
   }
 
   get fetching(): boolean {
