@@ -10,7 +10,7 @@ import { PrintedDialogComponent } from '../printed-dialog/printed-dialog.compone
   styleUrls: ['./preview.component.css'],
 })
 export class PreviewComponent implements OnInit {
-  userContainer: User[][] = [];
+  userContainer: User[][] = [[]];
 
   constructor(
     @Inject(STORE_TOKEN) private store: Store,
