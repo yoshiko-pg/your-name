@@ -22,6 +22,9 @@ export class ParticipationService {
     const doc = parser.parseFromString(htmlString, 'text/html');
 
     return userKinds
+      .sort((a, b) => {
+        return USER_KINDS.indexOf(a) - USER_KINDS.indexOf(b);
+      })
       .map((USER_KIND) => {
         return USER_KIND.CONTAINER_SELECTORS.map((SELECTOR) => {
           return Array.from(doc.querySelectorAll(`${SELECTOR} .image_link img`));
