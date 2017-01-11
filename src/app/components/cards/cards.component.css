@@ -17,6 +17,7 @@
   height: 92.6%;
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
 }
 
 app-card {

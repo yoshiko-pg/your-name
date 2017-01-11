@@ -6,15 +6,20 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  padding: 4%;
 }
 img {
-  height: 30%;
+  height: 38%;
   border-radius: 50%;
-  margin-right: 10%;
+  margin-right: 8%;
+  flex: 0 0 auto;
 }
 .name {
   font-size: 2vh;
   color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 @media print {
