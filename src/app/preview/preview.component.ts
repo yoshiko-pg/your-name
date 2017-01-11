@@ -28,7 +28,7 @@ export class PreviewComponent implements OnInit {
     this.userContainer = [];
     const users = [].concat(originalUsers);
 
-    while(users.length) {
+    while (users.length) {
       this.userContainer.push(users.splice(0, 10));
     }
   }
