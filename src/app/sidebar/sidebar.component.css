@@ -59,10 +59,18 @@ h1 {
   margin-left: 16px;
 }
 
+footer {
+  margin-bottom: 15px;
+}
+
+app-share-buttons {
+  height: 50px;
+}
+
 .created-by {
   color: #999;
   font-weight: 700;
-  margin: 30px 0;
+  margin: 15px 0;
 }
 
 .created-by a:link, .created-by a:visited, .created-by a:active {
