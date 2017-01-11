@@ -4,7 +4,7 @@
 
 <p>ConnpassのURLからネームカードを生成できます。</p>
 
-<form>
+<form class="setting-form">
   <md-input placeholder="Connpass Event URL" [(ngModel)]="url" name="url" type="text"></md-input>
 
   <ul class="select-member">
@@ -26,4 +26,7 @@
   <button md-raised-button color="primary" type="submit" (click)="submit()">Create</button>
 </form>
 
-<app-share-buttons></app-share-buttons>
+<footer>
+  <app-share-buttons></app-share-buttons>
+  <p class="created-by">Created by <a href="http://yoshiko-pg.github.io/">@yoshiko_pg</a></p>
+</footer>

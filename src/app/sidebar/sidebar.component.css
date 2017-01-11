@@ -2,6 +2,12 @@
   background-color: #fff;
   box-shadow: -5px 20px 20px rgba(0,0,0,0.2);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+:host > * {
+  flex: 0 0 auto;
 }
 
 .logo {
@@ -24,8 +30,10 @@ h1 {
   margin-top: -5px;
 }
 
-form {
+.setting-form {
   padding: 25px;
+  flex: 1 1 auto;
+  overflow-y: auto;
 }
 
 [name="url"] {
@@ -49,6 +57,16 @@ form {
   width: 76px;
   white-space: nowrap;
   margin-left: 16px;
+}
+
+.created-by {
+  color: #999;
+  font-weight: 700;
+  margin: 30px 0;
+}
+
+.created-by a:link, .created-by a:visited, .created-by a:active {
+  color: currentColor;
 }
 
 @media print {
