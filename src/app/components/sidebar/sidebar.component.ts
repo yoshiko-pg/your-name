@@ -15,7 +15,7 @@ export class SidebarComponent implements OnInit {
   waitingNumber: number = this.store.waitingNumber;
   loading: boolean = false;
 
-  demoUrl: string = 'https://goodpatch.connpass.com/event/20857/';
+  demoUrl: string = 'https://goodpatch.connpass.com/event/26109/';
 
   constructor(
     @Inject(ACTION_CREATOR_TOKEN) private actions: ActionCreator,
