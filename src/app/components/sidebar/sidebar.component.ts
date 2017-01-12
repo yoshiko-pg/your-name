@@ -13,6 +13,7 @@ export class SidebarComponent implements OnInit {
   userKinds: UserKind[] = USER_KINDS;
   selected: UserKind[] = this.store.includeUserKinds;
   waitingNumber: number = this.store.waitingNumber;
+  loading: boolean = false;
 
   demoUrl: string = 'https://goodpatch.connpass.com/event/20857/';
 
@@ -21,6 +22,7 @@ export class SidebarComponent implements OnInit {
     @Inject(STORE_TOKEN) private store: Store,
   ) {
     store.on('change', () => this.selected = this.store.includeUserKinds);
+    store.on('change', () => this.loading = this.store.fetching);
   }
 
   checkUserKind(userKind: UserKind, {checked}) {

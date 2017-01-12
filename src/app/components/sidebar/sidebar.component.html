@@ -37,7 +37,7 @@
     </li>
   </ul>
 
-  <button md-raised-button color="primary" type="submit" (click)="submit()">Create</button>
+  <button md-raised-button color="primary" type="submit" (click)="submit()" [disabled]="loading">Create</button>
 </form>
 
 <footer>
