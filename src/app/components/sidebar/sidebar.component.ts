@@ -14,6 +14,8 @@ export class SidebarComponent implements OnInit {
   selected: UserKind[] = this.store.includeUserKinds;
   waitingNumber: number = this.store.waitingNumber;
 
+  demoUrl: string = 'https://goodpatch.connpass.com/event/20857/';
+
   constructor(
     @Inject(ACTION_CREATOR_TOKEN) private actions: ActionCreator,
     @Inject(STORE_TOKEN) private store: Store,
@@ -35,6 +37,11 @@ export class SidebarComponent implements OnInit {
     }
 
     this.actions.updateUsers(this.url);
+  }
+
+  showDemo() {
+    this.url = this.demoUrl;
+    this.submit();
   }
 
   ngOnInit() {

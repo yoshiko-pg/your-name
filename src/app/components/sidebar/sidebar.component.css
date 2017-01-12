@@ -50,8 +50,14 @@
   overflow-y: auto;
 }
 
-[name="url"] {
-  display: block;
+.input-url {
+  width: 100%;
+}
+
+.demo {
+  color: #888;
+  border-bottom: 1px dashed #aaa;
+  cursor: pointer;
 }
 
 .select-member {

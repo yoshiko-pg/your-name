@@ -5,7 +5,10 @@
 </header>
 
 <form class="setting-form">
-  <md-input placeholder="Connpass Event URL" [(ngModel)]="url" name="url" type="text"></md-input>
+  <md-input-container class="input-url">
+    <input md-input placeholder="Connpass Event URL" [(ngModel)]="url" name="url" type="text">
+    <md-hint class="demo" align="end" (click)="showDemo()">demo</md-hint>
+  </md-input-container>
 
   <ul class="select-member">
     <li *ngFor="let userKind of userKinds">
