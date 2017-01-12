@@ -42,7 +42,9 @@ export class PreviewComponent implements OnInit {
       userArray.push(...users[KEY].slice(0, max));
     });
 
-    this.sliceUsers(userArray);
+    this.sliceUsers(userArray.filter((item, index, self) => {
+      return self.map((i) => i.avatar).indexOf(item.avatar) === index;
+    }));
   }
 
   sliceUsers(users: User[]): void {
