@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class ConnpassCardPage {
+export class YourNamePage {
   navigateTo() {
     return browser.get('/');
   }

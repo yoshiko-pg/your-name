@@ -8,8 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ShareButtonsComponent implements OnInit {
   @Input() created: boolean = false;
 
-  text: string = 'Connpass Name Card Generator';
-  url: string = 'https://yoshiko-pg.github.io/connpass-card/';
+  text: string = '参加者の名は。';
+  url: string = 'https://yoshiko-pg.github.io/your-name/';
 
   constructor() { }
 

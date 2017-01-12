@@ -1,10 +1,10 @@
-import { ConnpassCardPage } from './app.po';
+import { YourNamePage } from './app.po';
 
-describe('connpass-card App', function() {
-  let page: ConnpassCardPage;
+describe('your-name App', function() {
+  let page: YourNamePage;
 
   beforeEach(() => {
-    page = new ConnpassCardPage();
+    page = new YourNamePage();
   });
 
   it('should display message saying app works', () => {
