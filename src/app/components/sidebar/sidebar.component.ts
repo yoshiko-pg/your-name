@@ -15,6 +15,7 @@ export class SidebarComponent implements OnInit {
   waitingNumber: number = this.store.waitingNumber;
   loading: boolean = false;
 
+  urlMatcher: RegExp = /^https:\/\/(.+?\.)?connpass\.com\/event\/\d{1,5}\/?$/;
   demoUrl: string = 'https://goodpatch.connpass.com/event/26109/';
 
   constructor(
@@ -34,7 +35,7 @@ export class SidebarComponent implements OnInit {
   }
 
   submit(): void {
-    if (!this.url) {
+    if (!this.urlMatcher.test(this.url)) {
       return;
     }
 
