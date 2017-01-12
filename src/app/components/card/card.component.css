@@ -1,6 +1,9 @@
 :host {
   overflow: hidden;
   box-shadow: 0 0 1px rgba(0,0,0,0.5) inset;
+  background-image: url("./assets/images/preset1.png");
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
   padding: 4%;
   display: flex;
