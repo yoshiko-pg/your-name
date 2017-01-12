@@ -17,17 +17,31 @@
   transform: rotate(-12deg);
   box-shadow: -1px -1px 20px rgba(0,0,0,0.2);
   display: flex;
+  flex-wrap: wrap;
+  align-content: center;
   align-items: center;
   justify-content: center;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
-h1 {
+.logo .fa {
+  font-size: 52px;
+  margin-right: 18px;
+  color: #ccc;
+}
+
+.logo h1 {
   color: #636363;
-  letter-spacing: 8px;
-  font-size: 38px;
-  line-height: 1.2;
-  margin-top: -5px;
+  letter-spacing: 4px;
+  font-size: 26px;
+  margin-top: -4px;
+}
+
+.logo p {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  color: #bbb;
+  margin: 45px 0 -45px;
 }
 
 .setting-form {
@@ -43,7 +57,7 @@ h1 {
 .select-member {
   text-align: left;
   list-style-type: none;
-  margin: 30px 0;
+  margin: 40px 0;
   font-size: 14px;
 }
 .select-member li {
