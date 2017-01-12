@@ -3,3 +3,8 @@ export interface User {
   name: string;
   index: number;
 }
+
+export interface EventInfo {
+  image: string;
+  name: string;
+}

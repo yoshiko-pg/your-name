@@ -3,9 +3,11 @@ import { OpaqueToken } from '@angular/core/src/di/opaque_token';
 import { EventEmitter } from './event-emitter';
 import { Users } from './constants';
 import { USER_KINDS, UserKind } from './constants';
+import { EventInfo } from "./interfaces";
 
 interface State {
   users: Users;
+  eventInfo: EventInfo;
   includeUserKinds: UserKind[];
   waitingNumber: number;
   fetching: boolean;
@@ -14,6 +16,7 @@ interface State {
 export class Store extends EventEmitter {
   private state: State = {
     users: [],
+    eventInfo: {name: '', image: ''},
     includeUserKinds: USER_KINDS.filter((k) => k.KEY === 'participant'),
     waitingNumber: 10,
     fetching: false,
@@ -25,6 +28,7 @@ export class Store extends EventEmitter {
     this.dispatcher.on('excludeUserKind', this.excludeUserKind.bind(this));
     this.dispatcher.on('changeWaitingNumber', this.changeWaitingNumber.bind(this));
     this.dispatcher.on('updateUsers', this.updateUsers.bind(this));
+    this.dispatcher.on('updateEventInfo', this.updateEventInfo.bind(this));
     this.dispatcher.on('fetchingUsers', this.fetchingUsers.bind(this));
   }
 
@@ -48,6 +52,11 @@ export class Store extends EventEmitter {
     this.emit('change');
   }
 
+  updateEventInfo(info: EventInfo): void {
+    this.state.eventInfo = info;
+    this.emit('change');
+  }
+
   updateUsers(users: Users): void {
     this.state.users = users;
     this.emit('change');
@@ -56,6 +65,10 @@ export class Store extends EventEmitter {
   fetchingUsers(status: boolean): void {
     this.state.fetching = status;
     this.emit('change');
+  }
+
+  get eventInfo(): EventInfo {
+    return this.state.eventInfo;
   }
 
   get users(): Users {

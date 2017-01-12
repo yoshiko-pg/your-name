@@ -2,7 +2,7 @@ import { Observable } from "rxjs";
 import { OpaqueToken } from '@angular/core/src/di/opaque_token';
 
 import { EventEmitter } from './event-emitter';
-import { UserKind, Users } from './constants';
+import { UserKind } from './constants';
 import { ParticipationService } from '../services/participation.service';
 
 export class ActionCreator {
@@ -18,15 +18,19 @@ export class ActionCreator {
   }
 
   updateUsers(url: string): void {
-    this.fetchUsers(url).subscribe((users: Users) => {
-        this.dispatcher.emit('updateUsers', users);
-        this.dispatcher.emit('fetchingUsers', false);
+    this.fetch(url).subscribe((dom: Document) => {
+      const users = this.service.extractUsers(dom);
+      const eventInfo = this.service.extractEventInfo(dom);
+
+      this.dispatcher.emit('updateEventInfo', eventInfo);
+      this.dispatcher.emit('updateUsers', users);
+      this.dispatcher.emit('fetchingUsers', false);
     });
   }
 
-  fetchUsers(url: string): Observable<Users> {
+  fetch(url: string): Observable<Document> {
     this.dispatcher.emit('fetchingUsers', true);
-    return this.service.fetch(url);
+    return this.service.fetchDom(url);
   }
 }
 

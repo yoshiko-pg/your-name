@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MdDialog } from '@angular/material';
 import { Store, STORE_TOKEN } from '../../core/store';
-import { User } from '../../core/interfaces';
+import { User, EventInfo } from '../../core/interfaces';
 import { Users, UserKind, USER_KINDS } from '../../core/constants';
 import { PrintedDialogComponent } from '../printed-dialog/printed-dialog.component';
 
@@ -13,12 +13,14 @@ import { PrintedDialogComponent } from '../printed-dialog/printed-dialog.compone
 export class PreviewComponent implements OnInit {
   userContainer: User[][] = [];
   loading: boolean = false;
+  eventInfo: EventInfo;
 
   constructor(
     @Inject(STORE_TOKEN) private store: Store,
     private dialog: MdDialog,
   ) {
     store.on('change', this.pickUsers.bind(this));
+    store.on('change', () => this.eventInfo = this.store.eventInfo);
     store.on('change', () => this.loading = this.store.fetching);
   }
 

@@ -1,29 +1,60 @@
 :host {
   overflow: hidden;
   box-shadow: 0 0 1px rgba(0,0,0,0.5) inset;
-  background: url("./assets/images/background.png") no-repeat left top;
   background-size: cover;
-  display: inline-flex;
+  padding: 4%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.info-group {
+  display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4%;
+  width: 100%;
 }
-img {
-  height: 38%;
-  border-radius: 50%;
-  margin-right: 8%;
+
+.image {
   flex: 0 0 auto;
 }
+
 .name {
-  font-size: 2vh;
-  color: #fff;
+  color: #444;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
+.event-info {
+  margin-top: -10%;
+}
+
+.event-image {
+  width: 6%;
+  margin-right: 3.2%;
+}
+
+.event-name {
+  font-size: 1.4vh;
+}
+
+.user-avatar {
+  width: 20%;
+  border-radius: 50%;
+  margin-right: 8%;
+}
+
+.user-name {
+  font-size: 2vh;
+}
+
 @media print {
-  .name {
+  .event-name {
+    font-size: 3mm;
+  }
+  .user-name {
     font-size: 6.5mm;
   }
 }

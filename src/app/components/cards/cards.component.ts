@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { User } from '../../core/interfaces';
+import { User, EventInfo } from '../../core/interfaces';
 
 @Component({
   selector: 'app-cards',
@@ -8,6 +8,7 @@ import { User } from '../../core/interfaces';
 })
 export class CardsComponent implements OnInit {
   @Input() users: User[];
+  @Input() eventInfo: EventInfo;
   @Input() pageSum: number;
 
   constructor() { }
