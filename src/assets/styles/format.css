@@ -35,5 +35,9 @@ body{
 @media print {
   body {
     width: 210mm;
+    background-color: transparent;
+  }
+  .cdk-overlay-container {
+    display: none;
   }
 }
