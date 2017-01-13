@@ -1,4 +1,4 @@
-import { User } from "./interfaces";
+import { User } from './interfaces';
 
 export interface UserKind {
   KEY: string;

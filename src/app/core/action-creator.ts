@@ -1,4 +1,4 @@
-import { Observable } from "rxjs";
+import { Observable } from 'rxjs';
 import { OpaqueToken } from '@angular/core';
 
 import { EventEmitter } from './event-emitter';
