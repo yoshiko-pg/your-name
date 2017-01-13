@@ -1,5 +1,5 @@
 import { Observable } from "rxjs";
-import { OpaqueToken } from '@angular/core/src/di/opaque_token';
+import { OpaqueToken } from '@angular/core';
 
 import { EventEmitter } from './event-emitter';
 import { UserKind } from './constants';
