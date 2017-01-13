@@ -3,7 +3,7 @@ import { OpaqueToken } from '@angular/core';
 import { EventEmitter } from './event-emitter';
 import { Users } from './constants';
 import { USER_KINDS, UserKind } from './constants';
-import { EventInfo } from "./interfaces";
+import { EventInfo } from './interfaces';
 
 interface State {
   users: Users;
