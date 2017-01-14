@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { ActionCreator, ACTION_CREATOR_TOKEN } from '../../core/action-creator';
-import { Store, STORE_TOKEN } from '../../core/store';
+import { ActionCreator } from '../../core/action-creator';
+import { Store } from '../../core/store';
 import { USER_KINDS, UserKind } from '../../core/constants';
 
 @Component({
@@ -19,8 +19,8 @@ export class SidebarComponent implements OnInit {
   demoUrl: string = 'https://goodpatch.connpass.com/event/26109/';
 
   constructor(
-    @Inject(ACTION_CREATOR_TOKEN) private actions: ActionCreator,
-    @Inject(STORE_TOKEN) private store: Store,
+    private actions: ActionCreator,
+    private store: Store,
   ) {
     store.on('change', () => this.selected = this.store.includeUserKinds);
     store.on('change', () => this.loading = this.store.fetching);

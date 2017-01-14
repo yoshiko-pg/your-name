@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MdDialog } from '@angular/material';
-import { Store, STORE_TOKEN } from '../../core/store';
+import { Store } from '../../core/store';
 import { User, EventInfo } from '../../core/interfaces';
 import { Users, UserKind, USER_KINDS } from '../../core/constants';
 import { PrintedDialogComponent } from '../printed-dialog/printed-dialog.component';
@@ -16,7 +16,7 @@ export class PreviewComponent implements OnInit {
   eventInfo: EventInfo;
 
   constructor(
-    @Inject(STORE_TOKEN) private store: Store,
+    private store: Store,
     private dialog: MdDialog,
   ) {
     store.on('change', this.pickUsers.bind(this));

@@ -1,12 +1,13 @@
 import { Observable } from 'rxjs';
-import { OpaqueToken } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 
-import { EventEmitter } from './event-emitter';
+import { EventEmitter, PRIMARY_EVENT_EMITTER } from './event-emitter';
 import { UserKind } from './constants';
 import { ParticipationService } from '../services/participation.service';
 
+@Injectable()
 export class ActionCreator {
-  constructor(private dispatcher: EventEmitter, private service: ParticipationService) {
+  constructor(@Inject(PRIMARY_EVENT_EMITTER) private dispatcher: EventEmitter, private service: ParticipationService) {
   }
 
   checkUserKind(userKind: UserKind, checked: boolean): void {
@@ -32,9 +33,4 @@ export class ActionCreator {
     this.dispatcher.emit('fetchingUsers', true);
     return this.service.fetchDom(url);
   }
-}
-
-export const ACTION_CREATOR_TOKEN = new OpaqueToken('actionCreator');
-export function actionCreatorFactory(dispatcher: EventEmitter, service: ParticipationService) {
-  return new ActionCreator(dispatcher, service);
 }
