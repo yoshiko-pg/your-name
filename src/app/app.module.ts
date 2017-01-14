@@ -5,9 +5,9 @@ import { JsonpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { ShareButtonsModule } from 'ng2-sharebuttons';
 
-import { EventEmitter } from './core/event-emitter';
-import { actionCreatorFactory, ACTION_CREATOR_TOKEN } from './core/action-creator';
-import { storeFactory, STORE_TOKEN } from './core/store';
+import { ActionCreator } from './core/action-creator';
+import { EventEmitter, PRIMARY_EVENT_EMITTER } from './core/event-emitter';
+import { Store } from './core/store';
 
 import { ParticipationService } from './services/participation.service';
 
@@ -40,18 +40,10 @@ import { ShareButtonsComponent } from './components/share-buttons/share-buttons.
     ShareButtonsModule,
   ],
   providers: [
-    EventEmitter,
+    { provide: PRIMARY_EVENT_EMITTER, useClass: EventEmitter } ,
     ParticipationService,
-    {
-      provide: ACTION_CREATOR_TOKEN,
-      useFactory: actionCreatorFactory,
-      deps: [EventEmitter, ParticipationService],
-    },
-    {
-      provide: STORE_TOKEN,
-      useFactory: storeFactory,
-      deps: [EventEmitter],
-    }
+    Store,
+    ActionCreator,
   ],
   bootstrap: [AppComponent]
 })

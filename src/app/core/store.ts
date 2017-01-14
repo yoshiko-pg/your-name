@@ -1,6 +1,6 @@
-import { OpaqueToken } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 
-import { EventEmitter } from './event-emitter';
+import { EventEmitter, PRIMARY_EVENT_EMITTER } from './event-emitter';
 import { Users } from './constants';
 import { USER_KINDS, UserKind } from './constants';
 import { EventInfo } from './interfaces';
@@ -13,6 +13,7 @@ interface State {
   fetching: boolean;
 }
 
+@Injectable()
 export class Store extends EventEmitter {
   private state: State = {
     users: [],
@@ -22,7 +23,7 @@ export class Store extends EventEmitter {
     fetching: false,
   };
 
-  constructor(private dispatcher: EventEmitter) {
+  constructor(@Inject(PRIMARY_EVENT_EMITTER) private dispatcher: EventEmitter) {
     super();
     this.dispatcher.on('includeUserKind', this.includeUserKind.bind(this));
     this.dispatcher.on('excludeUserKind', this.excludeUserKind.bind(this));
@@ -87,6 +88,3 @@ export class Store extends EventEmitter {
       return this.state.fetching;
   }
 }
-
-export const STORE_TOKEN = new OpaqueToken('store');
-export function storeFactory(dispatcher: EventEmitter) { return new Store(dispatcher); }

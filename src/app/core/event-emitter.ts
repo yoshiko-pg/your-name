@@ -1,3 +1,6 @@
+import { Injectable, OpaqueToken } from '@angular/core';
+
+@Injectable()
 export class EventEmitter {
   private handlers = {};
 
@@ -20,3 +23,5 @@ export class EventEmitter {
     });
   }
 }
+
+export const PRIMARY_EVENT_EMITTER = new OpaqueToken('primaryEventEmitter');
