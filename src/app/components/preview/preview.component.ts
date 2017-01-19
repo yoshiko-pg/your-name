@@ -43,7 +43,7 @@ export class PreviewComponent implements OnInit {
     });
 
     this.sliceUsers(userArray.filter((item, index, self) => {
-      return self.map((i) => i.avatar).indexOf(item.avatar) === index;
+      return self.map((i) => `${i.name}${i.avatar}`).indexOf(`${item.name}${item.avatar}`) === index;
     }));
   }
 
