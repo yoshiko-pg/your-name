@@ -18,6 +18,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { PreviewComponent } from './components/preview/preview.component';
 import { PrintedDialogComponent } from './components/printed-dialog/printed-dialog.component';
 import { ShareButtonsComponent } from './components/share-buttons/share-buttons.component';
+import { DesignChangerComponent } from './components/design-changer/design-changer.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { ShareButtonsComponent } from './components/share-buttons/share-buttons.
     PreviewComponent,
     PrintedDialogComponent,
     ShareButtonsComponent,
+    DesignChangerComponent,
   ],
   entryComponents: [
     PrintedDialogComponent,
