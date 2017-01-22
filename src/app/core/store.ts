@@ -11,6 +11,7 @@ interface State {
   includeUserKinds: UserKind[];
   waitingNumber: number;
   fetching: boolean;
+  backgroundUrl: string;
 }
 
 @Injectable()
@@ -21,6 +22,7 @@ export class Store extends EventEmitter {
     includeUserKinds: USER_KINDS.filter((k) => k.KEY === 'participant'),
     waitingNumber: 10,
     fetching: false,
+    backgroundUrl: './assets/images/preset1.png',
   };
 
   constructor(@Inject(PRIMARY_EVENT_EMITTER) private dispatcher: EventEmitter) {
@@ -31,6 +33,7 @@ export class Store extends EventEmitter {
     this.dispatcher.on('updateUsers', this.updateUsers.bind(this));
     this.dispatcher.on('updateEventInfo', this.updateEventInfo.bind(this));
     this.dispatcher.on('fetchingUsers', this.fetchingUsers.bind(this));
+    this.dispatcher.on('changeBackgroundUrl', this.changeBackgroundUrl.bind(this));
   }
 
   includeUserKind(userKind: UserKind): void {
@@ -68,6 +71,11 @@ export class Store extends EventEmitter {
     this.emit('change');
   }
 
+  changeBackgroundUrl(url: string): void {
+    this.state.backgroundUrl = url;
+    this.emit('change');
+  }
+
   get eventInfo(): EventInfo {
     return this.state.eventInfo;
   }
@@ -86,5 +94,9 @@ export class Store extends EventEmitter {
 
   get fetching(): boolean {
       return this.state.fetching;
+  }
+
+  get backgroundUrl(): string {
+    return this.state.backgroundUrl;
   }
 }

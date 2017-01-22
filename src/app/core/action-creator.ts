@@ -18,6 +18,10 @@ export class ActionCreator {
     this.dispatcher.emit('changeWaitingNumber', num);
   }
 
+  changeBackgroundUrl(url: string): void {
+    this.dispatcher.emit('changeBackgroundUrl', url);
+  }
+
   updateUsers(url: string): void {
     this.fetch(url).subscribe((dom: Document) => {
       const users = this.service.extractUsers(dom);

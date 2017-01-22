@@ -1,17 +1,22 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, ElementRef } from '@angular/core';
 import { User, EventInfo } from '../../core/interfaces';
+import { Store } from "../../core/store";
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
   @Input() user: User;
   @Input() eventInfo: EventInfo;
 
-  constructor() { }
+  constructor(private store: Store, private element: ElementRef) {
+    this.changeBackgroundUrl();
+    this.store.on('change', this.changeBackgroundUrl.bind(this));
+  }
 
-  ngOnInit() {
+  changeBackgroundUrl() {
+    this.element.nativeElement.style.backgroundImage = `url("${this.store.backgroundUrl}")`;
   }
 }
