@@ -18,7 +18,7 @@ interface State {
 export class Store extends EventEmitter {
   private state: State = {
     users: [],
-    eventInfo: {name: '', image: ''},
+    eventInfo: { name: '', image: '' },
     includeUserKinds: USER_KINDS.filter((k) => k.KEY === 'participant'),
     waitingNumber: 10,
     fetching: false,
@@ -46,6 +46,7 @@ export class Store extends EventEmitter {
   excludeUserKind(userKind: UserKind): void {
     if (this.state.includeUserKinds.includes(userKind)) {
       const index = this.state.includeUserKinds.indexOf(userKind);
+
       this.state.includeUserKinds.splice(index, 1);
       this.emit('change');
     }
@@ -93,7 +94,7 @@ export class Store extends EventEmitter {
   }
 
   get fetching(): boolean {
-      return this.state.fetching;
+    return this.state.fetching;
   }
 
   get backgroundUrl(): string {

@@ -37,8 +37,9 @@ export class PreviewComponent implements OnInit {
 
     USER_KINDS.filter((KIND) => {
       return kinds.includes(KIND) && users[KIND.KEY];
-    }).forEach(({KEY}) => {
+    }).forEach(({ KEY }) => {
       const max = KEY === 'waiting' ? waitingNumber : users[KEY].length;
+
       userArray.push(...users[KEY].slice(0, max));
     });
 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActionCreator } from "../../core/action-creator";
+import { ActionCreator } from '../../core/action-creator';
 
 @Component({
   selector: 'app-design-changer',
@@ -12,7 +12,7 @@ export class DesignChangerComponent implements OnInit {
 
   constructor(private action: ActionCreator) { }
 
-  custom({srcElement}: {srcElement: HTMLInputElement}) {
+  custom({ srcElement }: { srcElement: HTMLInputElement }) {
     if (!srcElement.files.length) {
       return;
     }

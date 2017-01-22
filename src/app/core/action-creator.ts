@@ -7,8 +7,10 @@ import { ParticipationService } from '../services/participation.service';
 
 @Injectable()
 export class ActionCreator {
-  constructor(@Inject(PRIMARY_EVENT_EMITTER) private dispatcher: EventEmitter, private service: ParticipationService) {
-  }
+  constructor(
+    @Inject(PRIMARY_EVENT_EMITTER) private dispatcher: EventEmitter,
+    private service: ParticipationService,
+  ) { }
 
   checkUserKind(userKind: UserKind, checked: boolean): void {
     this.dispatcher.emit(checked ? 'includeUserKind' : 'excludeUserKind', userKind);
@@ -35,6 +37,7 @@ export class ActionCreator {
 
   fetch(url: string): Observable<Document> {
     this.dispatcher.emit('fetchingUsers', true);
+
     return this.service.fetchDom(url);
   }
 }

@@ -42,7 +42,7 @@ import { DesignChangerComponent } from './components/design-changer/design-chang
     ShareButtonsModule,
   ],
   providers: [
-    { provide: PRIMARY_EVENT_EMITTER, useClass: EventEmitter } ,
+    { provide: PRIMARY_EVENT_EMITTER, useClass: EventEmitter },
     ParticipationService,
     Store,
     ActionCreator,

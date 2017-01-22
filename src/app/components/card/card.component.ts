@@ -1,6 +1,6 @@
 import { Component, Input, ElementRef } from '@angular/core';
 import { User, EventInfo } from '../../core/interfaces';
-import { Store } from "../../core/store";
+import { Store } from '../../core/store';
 
 @Component({
   selector: 'app-card',

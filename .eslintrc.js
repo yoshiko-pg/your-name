@@ -183,7 +183,7 @@ module.exports = {
     "space-before-blocks": ["error", "always"],
     "space-before-function-paren": ["error", "never"],
     "space-in-parens": ["error", "never"],
-    "space-infix-ops": "error",
+    "space-infix-ops": 0, // type annotation error :(
     "space-unary-ops": "error",
     "spaced-comment": ["error", "always"],
     "wrap-regex": 0,

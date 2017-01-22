@@ -11,8 +11,8 @@ import { USER_KINDS, UserKind } from '../../core/constants';
 export class SidebarComponent implements OnInit {
   url: string;
   userKinds: UserKind[] = USER_KINDS;
-  selected: UserKind[] = this.store.includeUserKinds;
-  waitingNumber: number = this.store.waitingNumber;
+  selected: UserKind[];
+  waitingNumber: number;
   loading: boolean = false;
 
   urlMatcher: RegExp = /^https:\/\/(.+?\.)?connpass\.com\/event\/\d{1,5}\/?$/;
@@ -22,11 +22,14 @@ export class SidebarComponent implements OnInit {
     private actions: ActionCreator,
     private store: Store,
   ) {
+    this.selected = this.store.includeUserKinds;
+    this.waitingNumber = this.store.waitingNumber;
+
     store.on('change', () => this.selected = this.store.includeUserKinds);
     store.on('change', () => this.loading = this.store.fetching);
   }
 
-  checkUserKind(userKind: UserKind, {checked}) {
+  checkUserKind(userKind: UserKind, { checked }) {
     this.actions.checkUserKind(userKind, checked);
   }
 

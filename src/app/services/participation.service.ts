@@ -19,6 +19,7 @@ export class ParticipationService {
   parseDom(res: Response): Document {
     const parser = new DOMParser();
     const htmlString = res.json().results[0];
+
     return parser.parseFromString(htmlString, 'text/html');
   }
 
