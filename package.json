@@ -29,11 +29,11 @@
     "zone.js": "^0.7.5"
   },
   "devDependencies": {
+    "@angular/cli": "^1.0.0-beta.32.3",
     "@angular/compiler-cli": "^2.3.1",
     "@types/core-js": "^0.9.35",
     "@types/jasmine": "2.5.38",
     "@types/node": "^6.0.42",
-    "angular-cli": "1.0.0-beta.24",
     "codelyzer": "~2.0.0-beta.1",
     "eslint": "^3.12.2",
     "jasmine-core": "2.5.2",
