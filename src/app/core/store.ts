@@ -1,8 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 
 import { EventEmitter, PRIMARY_EVENT_EMITTER } from './event-emitter';
-import { Users } from './constants';
-import { USER_KINDS, UserKind } from './constants';
+import { Users, USER_KINDS, UserKind, Preset, PRESETS } from './constants';
 import { EventInfo } from './interfaces';
 
 interface State {
@@ -11,7 +10,7 @@ interface State {
   includeUserKinds: UserKind[];
   waitingNumber: number;
   fetching: boolean;
-  backgroundUrl: string;
+  preset: Preset;
 }
 
 @Injectable()
@@ -22,7 +21,7 @@ export class Store extends EventEmitter {
     includeUserKinds: USER_KINDS.filter((k) => k.KEY === 'participant'),
     waitingNumber: 10,
     fetching: false,
-    backgroundUrl: './assets/images/preset1.png',
+    preset: PRESETS[0],
   };
 
   constructor(@Inject(PRIMARY_EVENT_EMITTER) private dispatcher: EventEmitter) {
@@ -73,7 +72,7 @@ export class Store extends EventEmitter {
   }
 
   changeBackgroundUrl(url: string): void {
-    this.state.backgroundUrl = url;
+    this.state.preset = { backgroundUrl: url };
     this.emit('change');
   }
 
@@ -98,6 +97,6 @@ export class Store extends EventEmitter {
   }
 
   get backgroundUrl(): string {
-    return this.state.backgroundUrl;
+    return this.state.preset.backgroundUrl;
   }
 }

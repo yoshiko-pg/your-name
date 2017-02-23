@@ -1,2 +1,23 @@
 <h2>Change design</h2>
-<input type="file" (change)="custom($event)" accept="image/png,image/jpeg,image/gif,image/svg+xml">
+<ul class="presets">
+  <li
+    class="preset-preview"
+    [class.current]="preset.backgroundUrl === currentBgUrl"
+    [style.background-image]="'url(' + preset.backgroundUrl + ')'"
+    (click)="setBackgroundUrl(preset.backgroundUrl)"
+    *ngFor="let preset of PRESETS"
+  ></li>
+  <li
+    class="preset-preview"
+    [class.current]="customBgUrl === currentBgUrl"
+    [style.background-image]="'url(' + customBgUrl + ')'"
+    (click)="setBackgroundUrl(customBgUrl)"
+    *ngIf="customBgUrl"
+  ></li>
+  <li class="preset-preview">
+    <i class="fa fa-plus"></i>
+    <label>
+      <input type="file" (change)="custom($event)" accept="image/png,image/jpeg,image/gif,image/svg+xml">
+    </label>
+  </li>
+</ul>

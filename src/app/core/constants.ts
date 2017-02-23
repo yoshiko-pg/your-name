@@ -29,3 +29,16 @@ export const USER_KINDS: UserKind[] = [
     CONTAINER_SELECTORS: ['.waitlist_table_area'],
   },
 ];
+
+export interface Preset {
+  backgroundUrl: string;
+}
+
+export const PRESETS: Preset[] = [
+  {
+    backgroundUrl: './assets/images/preset1.png',
+  },
+  {
+    backgroundUrl: './assets/images/preset2.png',
+  },
+];
