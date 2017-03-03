@@ -40,10 +40,10 @@ export class PreviewComponent implements OnInit {
     }).forEach(({ KEY }) => {
       const max = KEY === 'waiting' ? waitingNumber : users[KEY].length;
 
-      userArray.push(...users[KEY].sort(this._sortUsers).slice(0, max));
+      userArray.push(...users[KEY].slice(0, max));
     });
 
-    this.sliceUsers(userArray.filter((item, index, self) => {
+    this.sliceUsers(userArray.sort(this._sortUsers).filter((item, index, self) => {
       return self.map((i) => `${i.name}${i.avatar}`).indexOf(`${item.name}${item.avatar}`) === index;
     }));
   }

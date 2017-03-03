@@ -1822,7 +1822,6 @@ var PreviewComponent = (function () {
         this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__printed_dialog_printed_dialog_component__["a" /* PrintedDialogComponent */]);
     };
     PreviewComponent.prototype.pickUsers = function () {
-        var _this = this;
         var users = this.store.users;
         var kinds = this.store.includeUserKinds;
         var waitingNumber = this.store.waitingNumber;
@@ -1832,9 +1831,9 @@ var PreviewComponent = (function () {
         }).forEach(function (_a) {
             var KEY = _a.KEY;
             var max = KEY === 'waiting' ? waitingNumber : users[KEY].length;
-            userArray.push.apply(userArray, users[KEY].sort(_this._sortUsers).slice(0, max));
+            userArray.push.apply(userArray, users[KEY].slice(0, max));
         });
-        this.sliceUsers(userArray.filter(function (item, index, self) {
+        this.sliceUsers(userArray.sort(this._sortUsers).filter(function (item, index, self) {
             return self.map(function (i) { return ("" + i.name + i.avatar); }).indexOf("" + item.name + item.avatar) === index;
         }));
     };
