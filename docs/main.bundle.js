@@ -1966,6 +1966,9 @@ var ParticipationService = (function () {
                     name: image.alt,
                     index: 0,
                 };
+            })
+                .filter(function (user) {
+                return !/退会ユーザー/.test(user.name);
             });
         });
         return users;

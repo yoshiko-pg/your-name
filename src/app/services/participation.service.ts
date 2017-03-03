@@ -41,6 +41,9 @@ export class ParticipationService {
           index: 0,
         };
       })
+      .filter((user: User) => {
+        return !/退会ユーザー/.test(user.name);
+      })
       ;
     });
 
