@@ -441,7 +441,7 @@ exports = module.exports = __webpack_require__(180)();
 
 
 // module
-exports.push([module.i, "body{\n  background-color: #f2f2f2;\n  color: #333;\n  font-size: 12px;\n  font-family: 'Maven Pro', sans-serif;\n  counter-reset: page-number;\n}\n\n*,\n*::before,\n*::after {\n  box-sizing: border-box;\n}\n\n.initial-loading-container {\n  width: 100%;\n  height: 100vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n\n.initial-loading {\n  width: 80px;\n  height: 80px;\n}\n\n.initial-loading .initial-loading-parts {\n  background-color: #f44336;\n}\n\n@page {\n  size: A4;\n  margin: 0;\n}\n@media print {\n  body {\n    width: 210mm;\n    background-color: transparent;\n  }\n  .cdk-overlay-container {\n    display: none;\n  }\n}\n", ""]);
+exports.push([module.i, "body{\n  background-color: #f2f2f2;\n  color: #333;\n  font-size: 12px;\n  font-family: 'Maven Pro', sans-serif;\n  counter-reset: page-number;\n}\n\n*,\n*::before,\n*::after {\n  box-sizing: border-box;\n}\n\n.initial-loading-container {\n  width: 100%;\n  height: 100vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n}\n\n.initial-loading {\n  width: 80px;\n  height: 80px;\n}\n\n.initial-loading .initial-loading-parts {\n  background-color: #f44336;\n}\n\n@page {\n  size: A4;\n  margin: 0;\n}\n@media print {\n  body {\n    width: 210mm;\n    background-color: transparent;\n  }\n  .cdk-overlay-container {\n    display: none;\n  }\n}\n\n#headway {\n  position: fixed;\n  right: 0;\n  top: 0;\n}\n", ""]);
 
 // exports
 

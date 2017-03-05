@@ -41,3 +41,9 @@ body{
     display: none;
   }
 }
+
+#headway {
+  position: fixed;
+  right: 0;
+  top: 0;
+}
