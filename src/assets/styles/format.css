@@ -28,6 +28,12 @@ body{
   background-color: #f44336;
 }
 
+#headway {
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
 @page {
   size: A4;
   margin: 0;
@@ -37,13 +43,8 @@ body{
     width: 210mm;
     background-color: transparent;
   }
+  #headway,
   .cdk-overlay-container {
     display: none;
   }
-}
-
-#headway {
-  position: fixed;
-  right: 0;
-  top: 0;
 }
