@@ -51,6 +51,7 @@
 
 .user-name {
   font-size: 2vh;
+  padding: 2px 2px;
 }
 
 @media print {
