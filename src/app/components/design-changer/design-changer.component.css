@@ -22,6 +22,9 @@ h2 {
   border: 2px solid rgba(0 ,0, 0, .6);
   overflow: hidden;
   position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
 .preset-preview.hidden {

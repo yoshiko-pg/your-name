@@ -4,14 +4,14 @@
     class="preset-preview"
     [class.current]="preset === currentPreset"
     [class.hidden]="!preset.backgroundUrl"
-    [style.background-image]="'url(' + preset.backgroundUrl + ')'"
+    [style.background-image]="'url(' + preset.backgroundUrl + ')' | safe: 'style'"
     (click)="changePreset(preset)"
     *ngFor="let preset of PRESETS"
   ></li>
   <li
     class="preset-preview"
     [class.current]="currentPreset.className === 'custom'"
-    [style.background-image]="'url(' + customBgUrl + ')'"
+    [style.background-image]="'url(' + customBgUrl + ')' | safe: 'style'"
     (click)="changeToCustomPreset()"
     *ngIf="customBgUrl"
   ></li>

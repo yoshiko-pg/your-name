@@ -20,6 +20,8 @@ import { PrintedDialogComponent } from './components/printed-dialog/printed-dial
 import { ShareButtonsComponent } from './components/share-buttons/share-buttons.component';
 import { DesignChangerComponent } from './components/design-changer/design-changer.component';
 
+import { SafePipe } from './pipes/safe.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +32,7 @@ import { DesignChangerComponent } from './components/design-changer/design-chang
     PrintedDialogComponent,
     ShareButtonsComponent,
     DesignChangerComponent,
+    SafePipe,
   ],
   entryComponents: [
     PrintedDialogComponent,
