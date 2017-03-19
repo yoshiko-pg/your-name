@@ -21,7 +21,7 @@ export class CardComponent {
     const { preset } = this.store;
     this.className = preset.className;
 
-    const url = preset.className === 'custom' ? this.store.customBgUrl : this.store.preset.backgroundUrl;
+    const url = preset.custom ? this.store.customBgUrl : this.store.preset.backgroundUrl;
     this.element.nativeElement.style.backgroundImage = `url("${url}")`;
   }
 }

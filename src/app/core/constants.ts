@@ -33,6 +33,7 @@ export const USER_KINDS: UserKind[] = [
 export interface Preset {
   backgroundUrl: string;
   className: string;
+  custom?: boolean;
 }
 
 export const PRESETS: Preset[] = [
@@ -46,7 +47,8 @@ export const PRESETS: Preset[] = [
   },
   {
     backgroundUrl: '',
-    className: 'custom',
+    className: 'default',
+    custom: true,
   },
 ];
 

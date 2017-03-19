@@ -114,6 +114,6 @@ export class Store extends EventEmitter {
   }
 
   get customPreset(): Preset {
-    return PRESETS.find((p) => p.className === 'custom');
+    return PRESETS.find((p) => p.custom);
   }
 }

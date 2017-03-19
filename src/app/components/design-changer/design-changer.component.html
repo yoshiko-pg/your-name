@@ -10,7 +10,7 @@
   ></li>
   <li
     class="preset-preview"
-    [class.current]="currentPreset.className === 'custom'"
+    [class.current]="currentPreset.custom"
     [style.background-image]="'url(' + customBgUrl + ')' | safe: 'style'"
     (click)="changeToCustomPreset()"
     *ngIf="customBgUrl"
