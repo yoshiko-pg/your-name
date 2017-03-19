@@ -16,9 +16,9 @@
 }
 
 /*******************************************************
-  preset1
+  default
 *******************************************************/
-.preset1 {
+.default {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,18 +26,18 @@
   padding: 7% 8%;
 }
 
-.preset1 .info-group {
+.default .info-group {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
 }
 
-.preset1 .image {
+.default .image {
   flex: 0 0 auto;
 }
 
-.preset1 .text {
+.default .text {
   color: #444;
   padding: 2px 0px;
   overflow: hidden;
@@ -45,35 +45,35 @@
   white-space: nowrap;
 }
 
-.preset1 .event-info {
+.default .event-info {
   margin-top: -10%;
 }
 
-.preset1 .event-image {
+.default .event-image {
   width: 6%;
   margin-right: 3.2%;
 }
 
-.preset1 .event-name {
+.default .event-name {
   font-size: 1.4vh;
   color: #aaa;
 }
 
-.preset1 .user-avatar {
+.default .user-avatar {
   width: 20%;
   border-radius: 50%;
   margin-right: 8%;
 }
 
-.preset1 .user-name {
+.default .user-name {
   font-size: 2vh;
 }
 
 @media print {
-  .preset1 .event-name {
+  .default .event-name {
     font-size: 3mm;
   }
-  .preset1 .user-name {
+  .default .user-name {
     font-size: 6.5mm;
   }
 }

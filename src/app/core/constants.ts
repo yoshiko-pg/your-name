@@ -38,11 +38,11 @@ export interface Preset {
 export const PRESETS: Preset[] = [
   {
     backgroundUrl: './assets/images/preset1.png',
-    className: 'preset1',
+    className: 'default',
   },
   {
     backgroundUrl: './assets/images/preset2.png',
-    className: 'preset2',
+    className: 'default',
   },
   {
     backgroundUrl: '',
