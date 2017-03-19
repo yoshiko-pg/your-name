@@ -1,8 +1,10 @@
-<div class="info-group event-info">
-  <span class="name event-name">{{eventInfo.name}}</span>
-</div>
+<div class="inner" [ngClass]="className">
+  <div class="info-group event-info">
+    <span class="text event-name">{{eventInfo.name}}</span>
+  </div>
 
-<div class="info-group user-info">
-  <img class="image user-avatar" src="{{user.avatar}}" alt="{{user.name}}">
-  <span class="name user-name">{{user.name}}</span>
+  <div class="info-group user-info">
+    <img class="image user-avatar" src="{{user.avatar}}" alt="{{user.name}}">
+    <span class="text user-name">{{user.name}}</span>
+  </div>
 </div>

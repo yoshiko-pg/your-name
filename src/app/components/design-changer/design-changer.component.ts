@@ -11,10 +11,11 @@ import { PRESETS, Preset } from "../../core/constants";
 export class DesignChangerComponent implements OnInit {
 
   PRESETS: Preset[] = PRESETS;
-  currentBgUrl: string;
+  currentPreset: Preset = null;
   customBgUrl: string;
 
   constructor(private action: ActionCreator, private store: Store) {
+    this.currentPreset = store.preset;
   }
 
   custom({ srcElement }: { srcElement: HTMLInputElement }) {
@@ -22,18 +23,22 @@ export class DesignChangerComponent implements OnInit {
       return;
     }
     this.customBgUrl = URL.createObjectURL(srcElement.files[0]);
-    this.action.changeBackgroundUrl(this.customBgUrl);
+    this.action.uploadCustomBg(this.customBgUrl);
   }
 
-  setBackgroundUrl(url) {
-    this.action.changeBackgroundUrl(url);
+  changeToCustomPreset() {
+    this.changePreset(this.store.customPreset);
   }
 
-  changeBackgroundUrl() {
-    this.currentBgUrl = this.store.backgroundUrl;
+  changePreset(preset: Preset) {
+    this.action.changePreset(preset);
+  }
+
+  setPreset() {
+    this.currentPreset = this.store.preset;
   }
 
   ngOnInit() {
-    this.store.on('change', this.changeBackgroundUrl.bind(this));
+    this.store.on('change', this.setPreset.bind(this));
   }
 }

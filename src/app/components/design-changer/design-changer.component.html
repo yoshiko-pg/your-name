@@ -2,16 +2,17 @@
 <ul class="presets">
   <li
     class="preset-preview"
-    [class.current]="preset.backgroundUrl === currentBgUrl"
+    [class.current]="preset === currentPreset"
+    [class.hidden]="!preset.backgroundUrl"
     [style.background-image]="'url(' + preset.backgroundUrl + ')'"
-    (click)="setBackgroundUrl(preset.backgroundUrl)"
+    (click)="changePreset(preset)"
     *ngFor="let preset of PRESETS"
   ></li>
   <li
     class="preset-preview"
-    [class.current]="customBgUrl === currentBgUrl"
+    [class.current]="currentPreset.className === 'custom'"
     [style.background-image]="'url(' + customBgUrl + ')'"
-    (click)="setBackgroundUrl(customBgUrl)"
+    (click)="changeToCustomPreset()"
     *ngIf="customBgUrl"
   ></li>
   <li class="preset-preview">

@@ -4,61 +4,76 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  padding: 4%;
+  position: relative;
+}
+
+.inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/*******************************************************
+  preset1
+*******************************************************/
+.preset1 {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  padding: 7% 8%;
 }
 
-.info-group {
+.preset1 .info-group {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
 }
 
-.image {
+.preset1 .image {
   flex: 0 0 auto;
 }
 
-.name {
+.preset1 .text {
   color: #444;
+  padding: 2px 0px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.event-info {
+.preset1 .event-info {
   margin-top: -10%;
 }
 
-.event-image {
+.preset1 .event-image {
   width: 6%;
   margin-right: 3.2%;
 }
 
-.event-name {
+.preset1 .event-name {
   font-size: 1.4vh;
   color: #aaa;
 }
 
-.user-avatar {
+.preset1 .user-avatar {
   width: 20%;
   border-radius: 50%;
   margin-right: 8%;
 }
 
-.user-name {
+.preset1 .user-name {
   font-size: 2vh;
-  padding: 2px 2px;
 }
 
 @media print {
-  .event-name {
+  .preset1 .event-name {
     font-size: 3mm;
   }
-  .user-name {
+  .preset1 .user-name {
     font-size: 6.5mm;
   }
 }

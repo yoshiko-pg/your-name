@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { Injectable, Inject } from '@angular/core';
 
 import { EventEmitter, PRIMARY_EVENT_EMITTER } from './event-emitter';
-import { UserKind } from './constants';
+import { UserKind, Preset } from './constants';
 import { ParticipationService } from '../services/participation.service';
 
 @Injectable()
@@ -20,8 +20,12 @@ export class ActionCreator {
     this.dispatcher.emit('changeWaitingNumber', num);
   }
 
-  changeBackgroundUrl(url: string): void {
-    this.dispatcher.emit('changeBackgroundUrl', url);
+  changePreset(preset: Preset): void {
+    this.dispatcher.emit('changePreset', preset);
+  }
+
+  uploadCustomBg(url: string): void {
+    this.dispatcher.emit('uploadCustomBg', url);
   }
 
   updateUsers(url: string): void {

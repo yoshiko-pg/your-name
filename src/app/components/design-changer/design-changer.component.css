@@ -24,6 +24,10 @@ h2 {
   position: relative;
 }
 
+.preset-preview.hidden {
+  display: none;
+}
+
 i.fa-plus {
   position: absolute;
   left: 50%;

@@ -32,13 +32,21 @@ export const USER_KINDS: UserKind[] = [
 
 export interface Preset {
   backgroundUrl: string;
+  className: string;
 }
 
 export const PRESETS: Preset[] = [
   {
     backgroundUrl: './assets/images/preset1.png',
+    className: 'preset1',
   },
   {
     backgroundUrl: './assets/images/preset2.png',
+    className: 'preset2',
+  },
+  {
+    backgroundUrl: '',
+    className: 'custom',
   },
 ];
+

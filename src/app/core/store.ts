@@ -11,6 +11,7 @@ interface State {
   waitingNumber: number;
   fetching: boolean;
   preset: Preset;
+  customBgUrl: string;
 }
 
 @Injectable()
@@ -22,6 +23,7 @@ export class Store extends EventEmitter {
     waitingNumber: 10,
     fetching: false,
     preset: PRESETS[0],
+    customBgUrl: null,
   };
 
   constructor(@Inject(PRIMARY_EVENT_EMITTER) private dispatcher: EventEmitter) {
@@ -32,7 +34,8 @@ export class Store extends EventEmitter {
     this.dispatcher.on('updateUsers', this.updateUsers.bind(this));
     this.dispatcher.on('updateEventInfo', this.updateEventInfo.bind(this));
     this.dispatcher.on('fetchingUsers', this.fetchingUsers.bind(this));
-    this.dispatcher.on('changeBackgroundUrl', this.changeBackgroundUrl.bind(this));
+    this.dispatcher.on('changePreset', this.changePreset.bind(this));
+    this.dispatcher.on('uploadCustomBg', this.uploadCustomBg.bind(this));
   }
 
   includeUserKind(userKind: UserKind): void {
@@ -71,8 +74,14 @@ export class Store extends EventEmitter {
     this.emit('change');
   }
 
-  changeBackgroundUrl(url: string): void {
-    this.state.preset = { backgroundUrl: url };
+  changePreset(preset: Preset): void {
+    this.state.preset = preset;
+    this.emit('change');
+  }
+
+  uploadCustomBg(url: string): void {
+    this.state.customBgUrl = url;
+    this.state.preset = this.customPreset;
     this.emit('change');
   }
 
@@ -96,7 +105,15 @@ export class Store extends EventEmitter {
     return this.state.fetching;
   }
 
-  get backgroundUrl(): string {
-    return this.state.preset.backgroundUrl;
+  get customBgUrl(): string {
+    return this.state.customBgUrl;
+  }
+
+  get preset(): Preset {
+    return this.state.preset;
+  }
+
+  get customPreset(): Preset {
+    return PRESETS.find((p) => p.className === 'custom');
   }
 }
