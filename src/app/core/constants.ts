@@ -46,6 +46,18 @@ export const PRESETS: Preset[] = [
     className: 'default',
   },
   {
+    backgroundUrl: './assets/images/browser.png',
+    className: 'default browser',
+  },
+  {
+    backgroundUrl: './assets/images/green-bar.png',
+    className: 'green-bar',
+  },
+  {
+    backgroundUrl: './assets/images/space.png',
+    className: 'space',
+  },
+  {
     backgroundUrl: '',
     className: 'default',
     custom: true,

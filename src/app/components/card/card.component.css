@@ -1,3 +1,6 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+@import url('https://fonts.googleapis.com/css?family=Play:700');
+
 :host {
   overflow: hidden;
   box-shadow: 0 0 1px rgba(0,0,0,0.5) inset;
@@ -15,7 +18,16 @@
   right: 0;
 }
 
-/*******************************************************
+.text {
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/******************************************************
   default
 *******************************************************/
 .default {
@@ -39,10 +51,6 @@
 
 .default .text {
   color: #444;
-  padding: 2px 0px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .default .event-info {
@@ -76,4 +84,121 @@
   .default .user-name {
     font-size: 6.5mm;
   }
+}
+
+
+/******************************************************
+  browser (w/ default)
+*******************************************************/
+.browser {
+  font-family: 'Noto Sans JP', sans-serif;
+  padding: 0;
+  font-weight: 700;
+}
+.browser .event-info {
+  position: absolute;
+  top: 5%;
+  left: 22%;
+  margin: 0;
+  width: auto;
+  max-width: 76%;
+}
+
+.browser .event-name {
+  font-size: 1vh;
+  color: #a2a5a8;
+  letter-spacing: 1px;
+  display: block;
+}
+
+.browser .user-info {
+  margin-top: 3%;
+}
+
+.browser .user-avatar {
+  width: 22%;
+  border-radius: 50%;
+  margin-right: 3%;
+  margin-left: 5%;
+}
+
+.browser .user-name {
+  font-size: 2.1vh;
+  margin-top: 3%;
+  margin-right: 5%;
+  padding: 2px;
+}
+
+
+/******************************************************
+  green-bar
+*******************************************************/
+.green-bar {
+  font-family: 'Noto Sans JP', sans-serif;
+  padding: 0;
+  font-weight: 700;
+}
+
+.green-bar .event-name {
+  position: absolute;
+  top: 14.5%;
+  left: 9%;
+  font-size: 1vh;
+  color: #a2a5a8;
+  letter-spacing: 1px;
+  max-width: 87%;
+}
+
+.green-bar .user-avatar {
+  position: absolute;
+  bottom: 14%;
+  left: 9%;
+  width: 24%;
+}
+
+.green-bar .user-name {
+  position: absolute;
+  bottom: 13%;
+  left: 37%;
+  font-size: 2.2vh;
+  max-width: 60%;
+}
+
+
+/******************************************************
+  space
+*******************************************************/
+.space {
+  font-family: Play, sans-serif;
+  padding: 0;
+  font-weight: 700;
+}
+
+.space .event-name {
+  position: absolute;
+  top: 2.2%;
+  left: 3%;
+  font-size: 1.1vh;
+  color: #c9cfd1;
+  letter-spacing: 1px;
+  max-width: 95%;
+}
+
+.space .user-avatar {
+  position: absolute;
+  top: 34%;
+  left: 14%;
+  width: 20%;
+  border-radius: 50%;
+  border: 4px solid #F1F1F1;
+  box-sizing: content-box;
+}
+
+.space .user-name {
+  position: absolute;
+  top: 45%;
+  left: 48.5%;
+  color: #fff;
+  font-size: 2.2vh;
+  max-width: 48%;
 }
