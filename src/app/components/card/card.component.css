@@ -57,33 +57,20 @@
   margin-top: -10%;
 }
 
-.default .event-image {
-  width: 6%;
-  margin-right: 3.2%;
-}
-
 .default .event-name {
   font-size: 1.4vh;
   color: #aaa;
+  font-weight: bold;
 }
 
 .default .user-avatar {
   width: 20%;
   border-radius: 50%;
-  margin-right: 8%;
+  margin-right: 6%;
 }
 
 .default .user-name {
-  font-size: 2vh;
-}
-
-@media print {
-  .default .event-name {
-    font-size: 3mm;
-  }
-  .default .user-name {
-    font-size: 6.5mm;
-  }
+  font-size: 2.3vh;
 }
 
 
