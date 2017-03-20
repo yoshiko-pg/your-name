@@ -107,7 +107,7 @@ var USER_KINDS = [
 var AUTHORS = {
     '711fumi': {
         name: '@711fumi',
-        link: 'https://github.com/711fumi',
+        link: 'http://www.711fumi.info',
     },
 };
 var PRESETS = [
