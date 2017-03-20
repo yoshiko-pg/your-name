@@ -22,3 +22,7 @@
     </label>
   </li>
 </ul>
+<p *ngIf="currentPreset.author">
+  Design by
+  <a [href]="currentPreset.author.link" target="_blank" rel="noopener noreferrer">{{currentPreset.author.name}}</a> Thanks!!
+</p>

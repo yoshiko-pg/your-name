@@ -34,7 +34,20 @@ export interface Preset {
   backgroundUrl: string;
   className: string;
   custom?: boolean;
+  author?: Author;
 }
+
+export interface Author {
+  name: string;
+  link: string;
+}
+
+const AUTHORS = {
+  '711fumi': {
+    name: '@711fumi',
+    link: 'http://www.711fumi.info',
+  },
+};
 
 export const PRESETS: Preset[] = [
   {
@@ -48,14 +61,17 @@ export const PRESETS: Preset[] = [
   {
     backgroundUrl: './assets/images/browser.png',
     className: 'default browser',
+    author: AUTHORS['711fumi'],
   },
   {
     backgroundUrl: './assets/images/green-bar.png',
     className: 'green-bar',
+    author: AUTHORS['711fumi'],
   },
   {
     backgroundUrl: './assets/images/space.png',
     className: 'space',
+    author: AUTHORS['711fumi'],
   },
   {
     backgroundUrl: '',
