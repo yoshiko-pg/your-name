@@ -117,3 +117,4 @@ export class Store extends EventEmitter {
     return PRESETS.find((p) => p.custom);
   }
 }
+
