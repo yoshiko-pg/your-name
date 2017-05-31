@@ -20,29 +20,26 @@ export class MeetupEventSource implements EventSource {
     if (!this._dom) {
       throw new Error('Can\'t extract information until DOM fetched!');
     }
-    const users: Users = {
-      admin: [],
-      participant: [],
-      waiting: [],
-    };
     const liItems = Array.from(this._dom.querySelectorAll('li[data-memberid]')) as HTMLLIElement[];
-    const participantList = liItems.map((liItem, index) => {
+    const records = liItems.map(liItem => {
       const name = liItem.querySelector('.member-name').textContent.trim();
       const avatar = liItem.querySelector('a.mem-photo-small').getAttribute('data-src');
-      return { name, avatar, index } as User;
+      const hasRole = !!liItem.querySelector('.event-role');
+      return { user: { name, avatar, index: 0 } as User, hasRole };
     });
-    users.participant = participantList;
-    return users;
+    const admin = records.filter(r => r.hasRole).map((r, i) => ({ ...r.user, index: i }));
+    const participant = records.filter(r => !r.hasRole).map((r, i) => ({ ...r.user, index: i + admin.length }));
+    const waiting: User[] = []; // FIXME...
+    return { admin, participant, waiting };
   }
 
   extractEventInfo(): EventInfo {
     if (!this._dom) {
       throw new Error('Can\'t extract information until DOM fetched!');
     }
-    const titleFragments = (this._dom.title || 'unknown name').split(' - ');
-    const eventName = this._dom.querySelector('.text--display3');
+    const eventName = this._dom.querySelector('.text--display3') || this._dom.querySelector('.text--display2');
     return {
-      name: titleFragments.slice(0, titleFragments.length - 1).join(' - '),
+      name: eventName ? eventName.textContent : '',
       image: '',
     };
   }
