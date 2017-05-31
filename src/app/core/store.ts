@@ -1,10 +1,13 @@
 import { Injectable, Inject } from '@angular/core';
 
 import { EventEmitter, PRIMARY_EVENT_EMITTER } from './event-emitter';
-import { Users, USER_KINDS, UserKind, Preset, PRESETS } from './constants';
+import { Users, USER_KINDS, UserKind, Preset, PRESETS, EventSourceKind } from './constants';
 import { EventInfo } from './interfaces';
 
 interface State {
+  url: string;
+  eventSourceKind?: EventSourceKind;
+  isValidSource: boolean;
   users: Users;
   eventInfo: EventInfo;
   includeUserKinds: UserKind[];
@@ -17,6 +20,9 @@ interface State {
 @Injectable()
 export class Store extends EventEmitter {
   private state: State = {
+    url: '',
+    eventSourceKind: null,
+    isValidSource: false,
     users: [],
     eventInfo: { name: '', image: '' },
     includeUserKinds: USER_KINDS.filter((k) => k.KEY === 'participant'),
@@ -28,6 +34,7 @@ export class Store extends EventEmitter {
 
   constructor(@Inject(PRIMARY_EVENT_EMITTER) private dispatcher: EventEmitter) {
     super();
+    this.dispatcher.on('changeUrl', this.changeUrl.bind(this));
     this.dispatcher.on('includeUserKind', this.includeUserKind.bind(this));
     this.dispatcher.on('excludeUserKind', this.excludeUserKind.bind(this));
     this.dispatcher.on('changeWaitingNumber', this.changeWaitingNumber.bind(this));
@@ -36,6 +43,23 @@ export class Store extends EventEmitter {
     this.dispatcher.on('fetchingUsers', this.fetchingUsers.bind(this));
     this.dispatcher.on('changePreset', this.changePreset.bind(this));
     this.dispatcher.on('uploadCustomBg', this.uploadCustomBg.bind(this));
+  }
+
+  changeUrl(url: string): void {
+    if (this.state.url !== url) {
+      if (/^https:\/\/(.+?\.)?connpass\.com\/event\/\d{1,5}\/?$/.test(url)) {
+        this.state.eventSourceKind = 'connpass';
+        this.state.isValidSource = true;
+      } else if (/^https:\/\/(.+?\.)?meetup\.com\/.*\/events\/\d+\/?$/.test(url)) {
+        this.state.eventSourceKind = 'meetup';
+        this.state.isValidSource = true;
+      } else {
+        this.state.eventSourceKind = null;
+        this.state.isValidSource = false;
+      }
+      this.state.url = url;
+      this.emit('change');
+    }
   }
 
   includeUserKind(userKind: UserKind): void {
@@ -83,6 +107,18 @@ export class Store extends EventEmitter {
     this.state.customBgUrl = url;
     this.state.preset = this.customPreset;
     this.emit('change');
+  }
+
+  get url(): string {
+    return this.state.url;
+  }
+
+  get eventSourceKind(): EventSourceKind {
+    return this.state.eventSourceKind;
+  }
+
+  get isValidSource(): boolean {
+    return this.state.isValidSource;
   }
 
   get eventInfo(): EventInfo {

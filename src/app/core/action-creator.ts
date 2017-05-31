@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { Injectable, Inject } from '@angular/core';
 
 import { EventEmitter, PRIMARY_EVENT_EMITTER } from './event-emitter';
-import { UserKind, Preset } from './constants';
+import { UserKind, Preset, EventSourceKind } from './constants';
 import { ParticipationService } from '../services/participation.service';
 
 @Injectable()
@@ -11,6 +11,10 @@ export class ActionCreator {
     @Inject(PRIMARY_EVENT_EMITTER) private dispatcher: EventEmitter,
     private service: ParticipationService,
   ) { }
+
+  changeUrl(url: string) {
+    this.dispatcher.emit('changeUrl', url);
+  }
 
   checkUserKind(userKind: UserKind, checked: boolean): void {
     this.dispatcher.emit(checked ? 'includeUserKind' : 'excludeUserKind', userKind);
@@ -28,10 +32,10 @@ export class ActionCreator {
     this.dispatcher.emit('uploadCustomBg', url);
   }
 
-  updateUsers(url: string): void {
-    this.fetch(url).subscribe((dom: Document) => {
-      const users = this.service.extractUsers(dom);
-      const eventInfo = this.service.extractEventInfo(dom);
+  updateUsers(url: string, eventSourceKind: EventSourceKind): void {
+    this.fetch(url, eventSourceKind).subscribe(() => {
+      const users = this.service.extractUsers();
+      const eventInfo = this.service.extractEventInfo();
 
       this.dispatcher.emit('updateEventInfo', eventInfo);
       this.dispatcher.emit('updateUsers', users);
@@ -39,9 +43,9 @@ export class ActionCreator {
     });
   }
 
-  fetch(url: string): Observable<Document> {
+  fetch(url: string, eventSourceKind: EventSourceKind): Observable<Document> {
     this.dispatcher.emit('fetchingUsers', true);
 
-    return this.service.fetchDom(url);
+    return this.service.fetch({ url, type: eventSourceKind });
   }
 }

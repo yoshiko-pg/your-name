@@ -13,10 +13,9 @@ export class SidebarComponent implements OnInit {
   userKinds: UserKind[] = USER_KINDS;
   selected: UserKind[];
   waitingNumber: number;
-  loading: boolean = false;
+  loading = false;
 
-  urlMatcher: RegExp = /^https:\/\/(.+?\.)?connpass\.com\/event\/\d{1,5}\/?$/;
-  demoUrl: string = 'https://goodpatch.connpass.com/event/26109/';
+  demoUrl = 'https://goodpatch.connpass.com/event/26109/';
 
   constructor(
     private actions: ActionCreator,
@@ -25,8 +24,13 @@ export class SidebarComponent implements OnInit {
     this.selected = this.store.includeUserKinds;
     this.waitingNumber = this.store.waitingNumber;
 
+    store.on('change', () => this.url = this.store.url);
     store.on('change', () => this.selected = this.store.includeUserKinds);
     store.on('change', () => this.loading = this.store.fetching);
+  }
+
+  changeUrl(url: string) {
+    this.actions.changeUrl(url);
   }
 
   checkUserKind(userKind: UserKind, { checked }) {
@@ -38,11 +42,12 @@ export class SidebarComponent implements OnInit {
   }
 
   submit(): void {
-    if (!this.urlMatcher.test(this.url)) {
+    if (!this.store.isValidSource) {
       return;
     }
 
-    this.actions.updateUsers(this.url);
+    const kind = this.store.eventSourceKind;
+    this.actions.updateUsers(this.url, kind);
   }
 
   showDemo() {

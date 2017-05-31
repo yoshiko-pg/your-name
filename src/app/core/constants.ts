@@ -80,3 +80,4 @@ export const PRESETS: Preset[] = [
   },
 ];
 
+export type EventSourceKind = 'connpass' | 'meetup';
