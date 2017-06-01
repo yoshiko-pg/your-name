@@ -1,12 +1,12 @@
 <header class="logo">
   <i class="fa fa-user-circle" aria-hidden="true"></i>
   <h1>参加者の名は。</h1>
-  <p>ConnpassのURLからネームカードを生成できます。</p>
+  <p>イベントサイトのURLからネームカードを生成できます。</p>
 </header>
 
 <form class="setting-form">
   <md-input-container class="input-url">
-    <input mdInput placeholder="Connpass / meetup Event URL" [ngModel]="url" (ngModelChange)="changeUrl($event)" name="url" type="url">
+    <input mdInput placeholder="Connpass / meetup.com Event URL" [ngModel]="url" (ngModelChange)="changeUrl($event)" name="url" type="url">
     <md-hint class="demo" align="end" (click)="showDemo()">demo</md-hint>
   </md-input-container>
 
