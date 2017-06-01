@@ -4,7 +4,7 @@
   </div>
 
   <div class="info-group user-info">
-    <img class="image user-avatar" src="{{user.avatar}}" alt="{{user.name}}">
+    <div class="image user-avatar" [ngStyle]="{'background-image': 'url(' + user.avatar + ')'}"></div>
     <span class="text user-name">{{user.name}}</span>
   </div>
 </div>

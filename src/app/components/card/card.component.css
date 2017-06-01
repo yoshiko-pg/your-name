@@ -27,6 +27,16 @@
   -webkit-font-smoothing: antialiased;
 }
 
+.user-avatar {
+  background-position: center center;
+  background-size: cover;
+}
+
+.user-avatar::before {
+  content: '';
+  display: block;
+  padding-top: 100%;
+}
 
 /******************************************************
   default
