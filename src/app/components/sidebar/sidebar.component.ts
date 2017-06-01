@@ -51,7 +51,7 @@ export class SidebarComponent implements OnInit {
   }
 
   showDemo() {
-    this.url = this.demoUrl;
+    this.changeUrl(this.demoUrl);
     this.submit();
   }
 
