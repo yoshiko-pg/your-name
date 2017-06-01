@@ -79,6 +79,17 @@
   margin-left: 16px;
 }
 
+/* NOTE: It's a monkey patch to fix height @angular/material's input-container */
+.waiting-number >>>> div {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.waiting-number input {
+  text-align: right;
+}
+
 footer {
   margin-bottom: 15px;
 }

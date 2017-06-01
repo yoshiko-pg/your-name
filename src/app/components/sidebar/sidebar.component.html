@@ -6,7 +6,7 @@
 
 <form class="setting-form">
   <md-input-container class="input-url">
-    <input md-input placeholder="Connpass Event URL" [(ngModel)]="url" name="url" type="url">
+    <input mdInput placeholder="Connpass / meetup Event URL" [ngModel]="url" (ngModelChange)="changeUrl($event)" name="url" type="url">
     <md-hint class="demo" align="end" (click)="showDemo()">demo</md-hint>
   </md-input-container>
 
@@ -19,21 +19,24 @@
       >
         {{userKind.LABEL}}
       </md-checkbox>
-      <md-input
+      <md-input-container
         *ngIf="userKind.KEY === 'waiting'"
         class="waiting-number"
-        name="waiting"
-        type="number"
-        align="end"
-        min="1"
-        max="999"
-        [(ngModel)]="waitingNumber"
-        (change)="changeWaitingNumber(waitingNumber)"
-        [disabled]="!selected.includes(userKind)"
       >
+        <input
+          mdInput
+          name="waiting"
+          type="number"
+          align="end"
+          min="1"
+          max="999"
+          [(ngModel)]="waitingNumber"
+          (change)="changeWaitingNumber(waitingNumber)"
+          [disabled]="!selected.includes(userKind)"
+        >
         <span md-prefix>上位</span>
         <span md-suffix>名</span>
-      </md-input>
+      </md-input-container>
     </li>
   </ul>
 

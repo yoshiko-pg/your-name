@@ -1,9 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { JsonpModule } from '@angular/http';
-import { MaterialModule } from '@angular/material';
-import { ShareButtonsModule } from 'ng2-sharebuttons';
+import { HttpModule, JsonpModule } from '@angular/http';
+import { ShareButtonsModule } from 'ngx-sharebuttons';
+import {
+  MdCommonModule,
+  MdCoreModule,
+  MdButtonModule,
+  MdDialogModule,
+  MdInputModule,
+  MdIconModule,
+  MdCheckboxModule,
+  MdProgressSpinnerModule,
+  MdTooltipModule,
+} from '@angular/material';
 
 import { ActionCreator } from './core/action-creator';
 import { EventEmitter, PRIMARY_EVENT_EMITTER } from './core/event-emitter';
@@ -39,10 +50,20 @@ import { SafePipe } from './pipes/safe.pipe';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
+    HttpModule,
     JsonpModule,
-    MaterialModule.forRoot(),
-    ShareButtonsModule,
+    MdCommonModule,
+    MdCoreModule,
+    MdButtonModule,
+    MdDialogModule,
+    MdInputModule,
+    MdIconModule,
+    MdCheckboxModule,
+    MdProgressSpinnerModule,
+    MdTooltipModule,
+    ShareButtonsModule.forRoot(),
   ],
   providers: [
     { provide: PRIMARY_EVENT_EMITTER, useClass: EventEmitter },
