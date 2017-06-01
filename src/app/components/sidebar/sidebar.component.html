@@ -19,21 +19,24 @@
       >
         {{userKind.LABEL}}
       </md-checkbox>
-      <input
-        mdInput
+      <md-input-container
         *ngIf="userKind.KEY === 'waiting'"
         class="waiting-number"
-        name="waiting"
-        type="number"
-        align="end"
-        min="1"
-        max="999"
-        [(ngModel)]="waitingNumber"
-        (change)="changeWaitingNumber(waitingNumber)"
-        [disabled]="!selected.includes(userKind)"
       >
-      <span md-prefix>上位</span>
-      <span md-suffix>名</span>
+        <input
+          mdInput
+          name="waiting"
+          type="number"
+          align="end"
+          min="1"
+          max="999"
+          [(ngModel)]="waitingNumber"
+          (change)="changeWaitingNumber(waitingNumber)"
+          [disabled]="!selected.includes(userKind)"
+        >
+        <span md-prefix>上位</span>
+        <span md-suffix>名</span>
+      </md-input-container>
     </li>
   </ul>
 
