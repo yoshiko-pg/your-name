@@ -14,6 +14,7 @@ import {
   MdCheckboxModule,
   MdProgressSpinnerModule,
   MdTooltipModule,
+  MdSnackBarModule,
 } from '@angular/material';
 
 import { ActionCreator } from './core/action-creator';
@@ -63,6 +64,7 @@ import { SafePipe } from './pipes/safe.pipe';
     MdCheckboxModule,
     MdProgressSpinnerModule,
     MdTooltipModule,
+    MdSnackBarModule,
     ShareButtonsModule.forRoot(),
   ],
   providers: [

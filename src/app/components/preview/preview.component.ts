@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MdDialog } from '@angular/material';
+import { MdDialog, MdSnackBar } from '@angular/material';
 import { Store } from '../../core/store';
 import { User, EventInfo } from '../../core/interfaces';
 import { Users, UserKind, USER_KINDS } from '../../core/constants';
@@ -18,6 +18,7 @@ export class PreviewComponent implements OnInit {
   constructor(
     private store: Store,
     private dialog: MdDialog,
+    public snackBar: MdSnackBar,
   ) {
     store.on('change', this.pickUsers.bind(this));
     store.on('change', () => this.eventInfo = this.store.eventInfo);
@@ -27,6 +28,10 @@ export class PreviewComponent implements OnInit {
   print(): void {
     window.print();
     this.dialog.open(PrintedDialogComponent);
+  }
+
+  openPrintAlert(): void {
+    this.snackBar.open('※印刷ダイアログ内で「背景のグラフィック」のチェックをオンにしてください');
   }
 
   pickUsers() {

@@ -1,5 +1,5 @@
 <md-spinner class="loading" *ngIf="loading"></md-spinner>
 <app-cards *ngFor="let users of userContainer" [users]="users" [eventInfo]="eventInfo" [pageSum]="userContainer.length"></app-cards>
-<button class="print-button" md-fab color="primary" (click)="print()" [disabled]="!userContainer.length">
+<button class="print-button" md-fab color="primary" (mouseenter)="openPrintAlert()" (click)="print()" [disabled]="!userContainer.length">
   <md-icon>print</md-icon>
 </button>
