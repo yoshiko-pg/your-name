@@ -4,6 +4,7 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
+    "postinstall": "cd service; yarn install",
     "ng": "ng",
     "serve:ng": "ng serve",
     "serve:api": "cd service; npm start",
