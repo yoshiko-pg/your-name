@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Jsonp, Response, Http } from '@angular/http';
+import { Response, Http } from '@angular/http';
 import { Observable } from 'rxjs';
 import { User, EventInfo } from '../core/interfaces';
 import { USER_KINDS, EventSourceKind, Users } from '../core/constants';
@@ -12,7 +12,7 @@ export class ParticipationService {
 
   eventSource: EventSource;
 
-  constructor(private http: Jsonp) { }
+  constructor(private http: Http) { }
 
   fetch({ url, type }: { url: string; type: EventSourceKind }): Observable<Document> {
     switch (type) {

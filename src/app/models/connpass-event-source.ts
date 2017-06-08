@@ -2,17 +2,9 @@ import { EventSource, HttpGet } from './event-source';
 import { Users, USER_KINDS } from '../core/constants';
 import { EventInfo, User } from '../core/interfaces';
 
-export class ConnpassEventSource implements EventSource {
-  /* @internal */
-  _dom: Document;
-
+export class ConnpassEventSource extends EventSource {
   load(eventSourceUrl: string, delegate: HttpGet) {
-    const query = `select * from html where url='${eventSourceUrl.replace(/\/$/, '')}/participation/'`;
-    const fullUrl = `https://query.yahooapis.com/v1/public/yql?callback=JSONP_CALLBACK&q=${encodeURIComponent(query)}`;
-    return delegate(fullUrl)
-      .map(res => new DOMParser().parseFromString(res.json().results[0], 'text/html'))
-      .do(dom => this._dom = dom)
-    ;
+    return super.load(eventSourceUrl.replace(/\/$/, '') + '/participation', delegate);
   }
 
   extractUsers(): Users {
