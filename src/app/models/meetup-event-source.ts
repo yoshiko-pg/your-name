@@ -2,19 +2,7 @@ import { EventInfo, User } from '../core/interfaces';
 import { EventSource, HttpGet } from './event-source';
 import { Users } from '../core/constants';
 
-export class MeetupEventSource implements EventSource {
-
-  /* @internal */
-  _dom: Document;
-
-  load(eventSourceUrl: string, delegate: HttpGet) {
-    const query = `select * from html where url='${eventSourceUrl}'`;
-    const fullUrl = `https://query.yahooapis.com/v1/public/yql?callback=JSONP_CALLBACK&q=${encodeURIComponent(query)}`;
-    return delegate(fullUrl)
-      .map(res => new DOMParser().parseFromString(res.json().results[0], 'text/html'))
-      .do(dom => this._dom = dom)
-    ;
-  }
+export class MeetupEventSource extends EventSource {
 
   extractUsers(): Users {
     if (!this._dom) {

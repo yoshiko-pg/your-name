@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "name": "service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "start": "../node_modules/.bin/serverless offline start --dontPrintOutput",
+    "deploy": "../node_modules/.bin/serverless deploy --stage prod"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1"
+  }
+}
