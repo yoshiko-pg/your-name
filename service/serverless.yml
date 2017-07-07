@@ -20,6 +20,7 @@ service: your-name-fetcher # NOTE: update this with your service name
 provider:
   name: aws
   runtime: nodejs6.10
+  timeout: 20
 
 # you can overwrite defaults here
 #  stage: dev
