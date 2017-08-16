@@ -38,9 +38,11 @@
   padding-top: 100%;
 }
 
+
 /******************************************************
   default
 *******************************************************/
+
 .default {
   display: flex;
   flex-direction: column;
@@ -65,13 +67,17 @@
 }
 
 .default .event-info {
-  margin-top: -10%;
+  margin-top: -3%;
 }
 
 .default .event-name {
   font-size: 1.4vh;
   color: #aaa;
   font-weight: bold;
+}
+
+.default .user-info {
+  margin-top: 8%;
 }
 
 .default .user-avatar {
@@ -88,11 +94,13 @@
 /******************************************************
   browser (w/ default)
 *******************************************************/
+
 .browser {
   font-family: 'Noto Sans JP', sans-serif;
   padding: 0;
   font-weight: 700;
 }
+
 .browser .event-info {
   position: absolute;
   top: 5%;
@@ -127,10 +135,15 @@
   padding: 2px;
 }
 
+.browser .frame-info {
+  display: none;
+}
+
 
 /******************************************************
   green-bar
 *******************************************************/
+
 .green-bar {
   font-family: 'Noto Sans JP', sans-serif;
   padding: 0;
@@ -162,10 +175,15 @@
   max-width: 60%;
 }
 
+.green-bar .frame-info {
+  display: none;
+}
+
 
 /******************************************************
   space
 *******************************************************/
+
 .space {
   font-family: Play, sans-serif;
   padding: 0;
@@ -199,4 +217,8 @@
   color: #fff;
   font-size: 2.2vh;
   max-width: 48%;
+}
+
+.space .frame-info {
+  display: none;
 }

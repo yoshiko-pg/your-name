@@ -9,6 +9,6 @@ describe('your-name App', function() {
 
   it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('参加者の名は。');
   });
 });
