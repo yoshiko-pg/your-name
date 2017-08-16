@@ -20,17 +20,19 @@ export class ConnpassEventSource extends EventSource {
     USER_KINDS.forEach((USER_KIND) => {
       users[USER_KIND.KEY] = USER_KIND.CONTAINER_SELECTORS
       .map((SELECTOR) => {
-        return Array.from(this._dom.querySelectorAll(`${SELECTOR} .image_link img`));
+        return Array.from(this._dom.querySelectorAll(`${SELECTOR} .user_info`));
       })
       .reduce((sum, current) => {
         return sum.concat(current);
       }, [])
-      .map((image: HTMLImageElement): User => {
+      .map((userInfo: HTMLElement): User => {
+        const image = <HTMLImageElement>userInfo.querySelector('.image_link img');
+        const frame = <HTMLElement>userInfo.querySelector('.label_ptype_name');
         return {
           avatar: image.src,
           name: image.alt,
           index: 0,
-          frame: '参加枠1', // TODO: あとで差し替える
+          frame: frame && frame.innerText,
         };
       })
       .filter((user: User) => {
