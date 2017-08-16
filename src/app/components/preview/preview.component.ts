@@ -64,6 +64,10 @@ export class PreviewComponent implements OnInit {
   }
 
   _sortUsers(a: User, b: User) {
+    if(a.frame && b.frame) {
+      if(a.frame.toLowerCase() < b.frame.toLowerCase()) return -1;
+      if(a.frame.toLowerCase() > b.frame.toLowerCase()) return 1;
+    }
     if(a.name.toLowerCase() < b.name.toLowerCase()) return -1;
     if(a.name.toLowerCase() > b.name.toLowerCase()) return 1;
     return 0;
