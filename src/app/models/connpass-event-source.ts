@@ -30,6 +30,7 @@ export class ConnpassEventSource extends EventSource {
           avatar: image.src,
           name: image.alt,
           index: 0,
+          frame: '参加枠1', // TODO: あとで差し替える
         };
       })
       .filter((user: User) => {
@@ -54,4 +55,3 @@ export class ConnpassEventSource extends EventSource {
     };
   }
 }
-
