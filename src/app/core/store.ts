@@ -47,7 +47,7 @@ export class Store extends EventEmitter {
 
   changeUrl(url: string): void {
     if (this.state.url !== url) {
-      if (/^https:\/\/(.+?\.)?connpass\.com\/event\/\d{1,5}\/?$/.test(url)) {
+      if (/^https:\/\/(.+?\.)?connpass\.com\/event\/\d{1,9}\/?$/.test(url)) {
         this.state.eventSourceKind = 'connpass';
         this.state.isValidSource = true;
       } else if (/^https:\/\/(.+?\.)?meetup\.com\/.*\/events\/\d+\/?$/.test(url)) {

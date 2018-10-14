@@ -1,6 +1,6 @@
 const rp = require('request-promise');
 const includePatterns = [
-  /^https:\/\/(.+?\.)?connpass\.com\/event\/\d{1,5}\/participation\/?$/,
+  /^https:\/\/(.+?\.)?connpass\.com\/event\/\d{1,9}\/participation\/?$/,
   /^https:\/\/(.+?\.)?meetup\.com\/.*\/events\/\d+\/?$/,
 ];
 
