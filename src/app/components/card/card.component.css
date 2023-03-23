@@ -1,5 +1,6 @@
 @import url('//fonts.googleapis.com/earlyaccess/notosansjp.css');
 @import url('//fonts.googleapis.com/css?family=Play:700');
+@import url('//fonts.googleapis.com/css?family=Inter:700');
 
 :host {
   overflow: hidden;
@@ -200,3 +201,34 @@
   font-size: 2.2vh;
   max-width: 48%;
 }
+
+/******************************************************
+  black-bar (w/ default)
+*******************************************************/
+.black-bar {
+  font-family: "Inter", "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic",
+    sans-serif;
+  padding: 0;
+  font-weight: 700;
+}
+.black-bar .event-info {
+  display: none;
+}
+
+.black-bar .user-info {
+  margin-top: 2%;
+}
+
+.black-bar .user-avatar {
+  width: 11%;
+  border-radius: 50%;
+  margin-right: 4%;
+  box-sizing: content-box;
+  border: 2px solid #fdfdfd;
+}
+
+.black-bar .user-name {
+  font-size: 3.2vh;
+  color: #fdfdfd;
+}
+
