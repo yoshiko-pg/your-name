@@ -59,6 +59,10 @@ export const PRESETS: Preset[] = [
     className: 'default',
   },
   {
+    backgroundUrl: "./assets/images/black-bar.png",
+    className: "default black-bar",
+  },
+  {
     backgroundUrl: './assets/images/browser.png',
     className: 'default browser',
     author: AUTHORS['711fumi'],
